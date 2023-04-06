@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShareMatterFragment">
+
+    <!--Top Bar-->
+    <LinearLayout
+        android:id="@+id/Welcometab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtHello"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Hello"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="User Name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Welcometab"
+        android:layout_marginTop="0dp"
+        android:background="#E3F2FD"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txtShareMatter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu"
+                    android:padding="5dp"
+                    android:text="Share Your Matter"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/txtService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:text="Select What You Need"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/selectService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/matterback"
+                        android:minHeight="30dp"
+                        android:popupBackground="#FFFFFF"
+                        android:spinnerMode="dropdown"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="@+id/service"
+                    app:layout_constraintStart_toStartOf="@+id/service"
+                    app:layout_constraintTop_toBottomOf="@+id/service">
+
+                    <TextView
+                        android:id="@+id/txtField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:text="More Specific"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/selectsubField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/matterback"
+                        android:minHeight="30dp"
+                        android:spinnerMode="dropdown"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnshow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text=" Show "
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:cornerRadius="20dp"
+                    app:elevation="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/field"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/field"
+                    app:layout_constraintTop_toBottomOf="@+id/field"
+                    app:rippleColor="#1295DC" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="280dp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!--Bottom Navigation-->
+
+    <LinearLayout
+        android:id="@+id/bottomnav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnsharematter"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Home"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_baseline_home_24"
+            app:iconGravity="top"
+            app:iconPadding="0dp"
+            app:iconSize="20dp"
+            app:iconTint="#000000" />
+
+        <Button
+            android:id="@+id/btndashboard"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Dashboard"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_baseline_dashboard_24"
+            app:iconGravity="top"
+            app:iconPadding="0dp"
+            app:iconSize="20dp"
+            app:iconTint="#000000" />
+
+        <Button
+            android:id="@+id/btnlogout"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Logout"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_baseline_login_24"
+            app:iconGravity="top"
+            app:iconPadding="0dp"
+            app:iconSize="20dp"
+            app:iconTint="#000000" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+

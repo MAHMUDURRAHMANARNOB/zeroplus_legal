@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.zeroplus.zeroplus_legal.FirstFragment"
+        android:label="Zeroplus"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_FirstFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.zeroplus.zeroplus_legal.loginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_loginFragment_to_shareMatterFragment"
+            app:destination="@id/shareMatterFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_loginFragment_to_forgerPassFragment"
+            app:destination="@id/forgerPassFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.zeroplus.zeroplus_legal.registrationFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_enabelCodeFragment"
+            app:destination="@id/enabelCodeFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_registrationFragment_to_tarmsConditionFragment"
+            app:destination="@id/tarmsConditionFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/enabelCodeFragment"
+        android:name="com.zeroplus.zeroplus_legal.EnabelCodeFragment"
+        android:label="Congratulations"
+        tools:layout="@layout/fragment_enabel_code" />
+    <fragment
+        android:id="@+id/shareMatterFragment"
+        android:name="com.zeroplus.zeroplus_legal.ShareMatterFragment"
+        android:label="Share Your Matter"
+        tools:layout="@layout/fragment_share_matter" />
+    <fragment
+        android:id="@+id/tarmsConditionFragment"
+        android:name="com.zeroplus.zeroplus_legal.TarmsConditionFragment"
+        android:label="Privacy Policy"
+        tools:layout="@layout/fragment_tarms_condition" />
+    <fragment
+        android:id="@+id/forgerPassFragment"
+        android:name="com.zeroplus.zeroplus_legal.ForgerPassFragment"
+        android:label="fragment_forger_pass"
+        tools:layout="@layout/fragment_forger_pass" >
+        <action
+            android:id="@+id/action_forgerPassFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_forgerPassFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_form_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+</navigation>

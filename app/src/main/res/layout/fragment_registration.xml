@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".registrationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EFD3A3">
+
+        <TextView
+            android:id="@+id/regtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/convergence"
+            android:gravity="center_horizontal"
+            android:text="Hi,"
+            android:textColor="#071842"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/regtxt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/convergence"
+            android:gravity="center_horizontal"
+            android:text="Create Account"
+            android:textColor="#0C3351"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/regtxt"
+            app:layout_constraintStart_toStartOf="@+id/regtxt"
+            app:layout_constraintTop_toBottomOf="@+id/regtxt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:elevation="10dp"
+            android:background="@drawable/corner_radius_linearlayout"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/regtxt2"
+            app:layout_constraintStart_toStartOf="@id/regtxt2"
+            app:layout_constraintTop_toBottomOf="@+id/regtxt2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtInLayName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Name"
+                    android:paddingTop="0dp"
+                    android:textColorHint="#00306E"
+                    app:boxBackgroundColor="#EFD3A3"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="#061B2B"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.573"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderTextColor="#071129"
+                    app:prefixTextColor="#071129"
+                    app:suffixTextColor="#071129">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtInFldName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/convergence"
+                        android:shadowColor="#041A22"
+                        android:textColor="#071833"
+                        android:textColorHint="#04192B"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtInLayPhone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Phone"
+                    android:paddingTop="0dp"
+                    android:textColorHint="#00306E"
+                    app:boxBackgroundColor="#EFD3A3"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="#061B2B"
+                    app:layout_constraintEnd_toEndOf="@id/txtInLayName"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/txtInLayName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInLayName"
+                    app:placeholderTextColor="#071129"
+                    app:prefixTextColor="#071129"
+                    app:suffixTextColor="#071129">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtInFldPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/convergence"
+                        android:shadowColor="#041A22"
+                        android:textColor="#071833"
+                        android:textColorHint="#04192B"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtInLayEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:hint="Email"
+                    android:paddingTop="0dp"
+                    android:textColorHint="#00306E"
+                    android:visibility="invisible"
+                    app:boxBackgroundColor="#EFD3A3"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="#061B2B"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnbacktologin"
+                    app:placeholderTextColor="#071129"
+                    app:prefixTextColor="#071129"
+                    app:suffixTextColor="#071129">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/userid_phone_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/convergence"
+                        android:shadowColor="#041A22"
+                        android:textColor="#071833"
+                        android:textColorHint="#04192B"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtInLayPass"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Password"
+                    android:paddingTop="0dp"
+                    android:textColorHint="#00306E"
+                    app:boxBackgroundColor="#EFD3A3"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="#061B2B"
+                    app:layout_constraintEnd_toEndOf="@+id/txtInLayPhone"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txtInLayPhone"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInLayPhone"
+                    app:placeholderTextColor="#071129"
+                    app:prefixTextColor="#071129"
+                    app:suffixTextColor="#071129">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtInFldPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/convergence"
+                        android:shadowColor="#041A22"
+                        android:textColor="#071833"
+                        android:textColorHint="#04192B"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtInLayRefCode"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Referent Code (Optional)"
+                    android:paddingTop="0dp"
+                    android:textColorHint="#00306E"
+                    app:boxBackgroundColor="#EFD3A3"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="#061B2B"
+                    app:layout_constraintEnd_toEndOf="@id/txtInLayPass"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/txtInLayPass"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInLayPass"
+                    app:placeholderTextColor="#071129"
+                    app:prefixTextColor="#071129"
+                    app:suffixTextColor="#071129">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtInFldRefCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/convergence"
+                        android:shadowColor="#041A22"
+                        android:textColor="#071833"
+                        android:textColorHint="#04192B"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/llTC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="@+id/txtInLayRefCode"
+                    app:layout_constraintStart_toStartOf="@+id/txtInLayRefCode"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInLayRefCode">
+
+                    <CheckBox
+                        android:id="@+id/TCcheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="By Checking this box you accept our TC and Privacy Policy"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:buttonTint="@color/legal"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtTC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="View Terms Conditions and Privacy Policy"
+                        android:textColor="@color/blue"
+                        android:textStyle="bold"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
+
+
+
+                <!--<LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="@+id/txtInLayRefCode"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="@+id/txtInLayRefCode"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInLayRefCode">
+
+                    <TextView
+                        android:id="@+id/paymodetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Payment Mode: "
+                        android:textColor="#0C3351"
+                        android:textSize="15sp" />
+
+                    <RadioGroup
+                        android:id="@+id/RBPayMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/onlineRB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Online"
+                            android:textColor="#06152C"
+                            android:textSize="16sp" />
+
+                        <RadioButton
+                            android:id="@+id/offlineRB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Offline"
+                            android:textColor="#06152C"
+                            android:textSize="16sp" />
+
+
+                    </RadioGroup>
+
+                </LinearLayout>-->
+
+                <Button
+                    android:id="@+id/regbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:hapticFeedbackEnabled="true"
+                    android:text="Save And Continue"
+                    app:cornerRadius="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llTC" />
+
+                <LinearLayout
+                    android:id="@+id/deviderOR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    app:layout_constraintEnd_toEndOf="@+id/regbtn"
+                    app:layout_constraintStart_toStartOf="@+id/regbtn"
+                    app:layout_constraintTop_toBottomOf="@+id/regbtn">
+
+                    <View
+                        android:id="@+id/divider3"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="1.25"
+                        android:background="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="OR"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/divider2"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="1.25"
+                        android:background="@color/blue" />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnbacktologin"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:hapticFeedbackEnabled="true"
+                    android:text="Back to Log-in"
+                    android:textColor="@color/blue"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deviderOR"
+                    app:strokeWidth="1dp" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+
+        android:src="@drawable/ic_baseline_camera_alt_24"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="TODO" />-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/regular_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/card"
+            android:backgroundTint="@color/legal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

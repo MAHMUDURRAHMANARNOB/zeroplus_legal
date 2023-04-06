@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/First2Fragment">
+
+    <fragment
+        android:id="@+id/shareMatterWebFragment"
+        android:name="com.zeroplus.zeroplus_legal.ShareMatterWebFragment"
+        android:label="fragment_share_matter_web"
+        tools:layout="@layout/fragment_share_matter_web"/>
+    <fragment
+        android:id="@+id/zeroplusWebviewFragment"
+        android:name="com.zeroplus.zeroplus_legal.ZeroplusWebviewFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_zeroplus_webview" />
+    <fragment
+        android:id="@+id/First2Fragment"
+        android:name="com.zeroplus.zeroplus_legal.First2Fragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first2"/>
+</navigation>
