@@ -20,4 +20,14 @@
         android:name="com.zeroplus.zeroplus_legal.First2Fragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first2"/>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.zeroplus.zeroplus_legal.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/lawOfficeFragment"
+        android:name="com.zeroplus.zeroplus_legal.LawOfficeFragment"
+        android:label="fragment_law_office"
+        tools:layout="@layout/fragment_law_office" />
 </navigation>

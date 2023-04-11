@@ -8,10 +8,16 @@
         android:title="Find Professional" />
 
     <item
-        android:id="@+id/itemdashboard"
+        android:id="@+id/itemhome"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_dashboard_24"
-        android:title="Dashboard" />
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/itemSettings"
+        android:enabled="true"
+        android:icon="@drawable/settings"
+        android:title="Settings" />
 
     <item
         android:id="@+id/itemlogout"

@@ -55,12 +55,20 @@ public class First2Fragment extends Fragment {
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
                         break;
-                    case R.id.itemdashboard:
+                    case R.id.itemhome:
                         /*fragment = fragmentClass;*/
-                        fragment = new ZeroplusWebviewFragment();
+                        fragment = new DashboardFragment();
                         FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
                         ft1.replace(R.id.mainFrame, fragment);
                         ft1.commit();
+                        break;
+
+                    case R.id.itemSettings:
+                        /*fragment = fragmentClass;*/
+                        fragment = new LawOfficeFragment();
+                        FragmentTransaction ft2 = getActivity().getSupportFragmentManager().beginTransaction();
+                        ft2.replace(R.id.mainFrame, fragment);
+                        ft2.commit();
                         break;
                     case R.id.itemlogout:
                         /*fragment = fragmentDoubts;*/
@@ -110,7 +118,7 @@ public class First2Fragment extends Fragment {
                 return true; // return true;
             }
         });
-        binding.bottomNavigation.setSelectedItemId(R.id.itemdashboard);
+        binding.bottomNavigation.setSelectedItemId(R.id.itemhome);
     }
 
     @Override
