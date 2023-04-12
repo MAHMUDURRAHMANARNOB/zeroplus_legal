@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
+    <!--<item
         android:id="@+id/itemshareMatter"
         android:enabled="true"
         android:icon="@drawable/find_prof"
-        android:title="Find Professional" />
+        android:title="Find Professional" />-->
 
     <item
         android:id="@+id/itemhome"
         android:enabled="true"
         android:icon="@drawable/home"
         android:title="Home" />
-
     <item
-        android:id="@+id/itemSettings"
+        android:id="@+id/itemEarnings"
         android:enabled="true"
         android:icon="@drawable/settings"
-        android:title="Settings" />
+        android:title="Earnings" />
+    <item
+        android:id="@+id/itemReferrals"
+        android:enabled="true"
+        android:icon="@drawable/settings"
+        android:title="Referrals" />
+
+    <item
+        android:id="@+id/itemProfile"
+        android:enabled="true"
+        android:icon="@drawable/settings"
+        android:title="Profile" />
 
     <item
         android:id="@+id/itemlogout"

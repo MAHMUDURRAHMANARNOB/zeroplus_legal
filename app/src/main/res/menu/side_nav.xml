@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/settings"
+            android:title="Settings" >
+            <menu>
+                <item
+                    android:id="@+id/itemAccSettings"
+                    android:enabled="true"
+                    android:icon="@drawable/home"
+                    android:title="Account Settings" />
+                <item
+                    android:id="@+id/itemProSettings"
+                    android:enabled="true"
+                    android:icon="@drawable/home"
+                    android:title="Profile Settings" />
+
+            </menu>
+        </item>
+
+    </group>
+
+    <item
+        android:id="@+id/itemPackages"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:title="Packages" />
+
+    <item
+        android:id="@+id/itemLogout"
+        android:enabled="true"
+        android:icon="@drawable/logout_icon"
+        android:title="Logout" />
+</menu>

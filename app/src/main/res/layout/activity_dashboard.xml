@@ -6,17 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
+    <!--<include android:id="@+id/dash_toolbar"
+            layout="@layout/toolbar"/>-->
+
     <!--<com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.ZEROPLUSMOBILE.AppBarOverlay">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.ZEROPLUSMOBILE.PopupOverlay" />
+        <include android:id="@+id/dash_toolbar"
+            layout="@layout/toolbar"/>
 
     </com.google.android.material.appbar.AppBarLayout>-->
 

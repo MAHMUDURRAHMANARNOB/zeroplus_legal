@@ -48,7 +48,7 @@ public class First2Fragment extends Fragment {
                 Fragment fragment;
                 switch (item.getItemId()) {
 
-                    case R.id.itemshareMatter:
+                    case R.id.itemEarnings:
                         /*fragment = fragmentHome;*/
                         fragment = new ShareMatterWebFragment();
                         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
@@ -63,13 +63,22 @@ public class First2Fragment extends Fragment {
                         ft1.commit();
                         break;
 
-                    case R.id.itemSettings:
+                    case R.id.itemReferrals:
                         /*fragment = fragmentClass;*/
                         fragment = new LawOfficeFragment();
                         FragmentTransaction ft2 = getActivity().getSupportFragmentManager().beginTransaction();
                         ft2.replace(R.id.mainFrame, fragment);
                         ft2.commit();
                         break;
+
+                    case R.id.itemProfile:
+                        /*fragment = fragmentClass;*/
+                        fragment = new LawOfficeFragment();
+                        FragmentTransaction ft3 = getActivity().getSupportFragmentManager().beginTransaction();
+                        ft3.replace(R.id.mainFrame, fragment);
+                        ft3.commit();
+                        break;
+
                     case R.id.itemlogout:
                         /*fragment = fragmentDoubts;*/
                         /*fragment = new ;
