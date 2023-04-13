@@ -1,9 +1,15 @@
 package com.zeroplus.zeroplus_legal;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,10 +24,12 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.zeroplus.zeroplus_legal.databinding.ActivityDashboardBinding;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityDashboardBinding binding;
+    SharedPreferences prf;
+
 
     DrawerLayout drawerDashboard;
     NavigationView navigationView;
@@ -31,6 +39,8 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prf = this.getSharedPreferences(SessionManager.SESSION_REMEMBERME,0);
 
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -61,9 +71,17 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         /*navigation drawer menu*/
+        navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerDashboard,custoolbar,R.string.Open_nav,R.string.close_nav);
         drawerDashboard.addDrawerListener(toggle);
         toggle.syncState();
+
+        navigationView.setCheckedItem(R.id.itemDashboard);
+
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        navigationView.setCheckedItem(R.id.itemDashboard);
 
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_dashboard);
@@ -94,6 +112,42 @@ public class DashboardActivity extends AppCompatActivity {
             super.onBackPressed();
         }
 
+    }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.itemDashboard:
+                Intent Dashintent = new Intent(this,DashboardActivity.class);
+                startActivity(Dashintent);
+                Toast.makeText(this,"itemDashboard", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.itemPackages:
+                Toast.makeText(this,"itemPackages", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.itemAccSettings:
+                Toast.makeText(this,"itemAccSettings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.itemProSettings:
+                Toast.makeText(this,"profile Settings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.itemLogout:
+                SharedPreferences.Editor editor = prf.edit();
+                editor.clear();
+                editor.commit();
+
+                Intent Logintent = new Intent(this,
+                        MainActivity.class);
+                Logintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(Logintent);
+                this.finish();
+                break;
+
+        }
+
+        drawerDashboard.closeDrawer(GravityCompat.START);
+
+        return true;
     }
 }

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/itemDashboard"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/itemPackages"
+        android:enabled="true"
+        android:icon="@drawable/packages"
+        android:title="Packages" />
+
     <group android:checkableBehavior="single">
         <item
             android:icon="@drawable/settings"
@@ -9,12 +21,12 @@
                 <item
                     android:id="@+id/itemAccSettings"
                     android:enabled="true"
-                    android:icon="@drawable/home"
+                    android:icon="@drawable/account_settings"
                     android:title="Account Settings" />
                 <item
                     android:id="@+id/itemProSettings"
                     android:enabled="true"
-                    android:icon="@drawable/home"
+                    android:icon="@drawable/profile_settings"
                     android:title="Profile Settings" />
 
             </menu>
@@ -22,11 +34,6 @@
 
     </group>
 
-    <item
-        android:id="@+id/itemPackages"
-        android:enabled="true"
-        android:icon="@drawable/home"
-        android:title="Packages" />
 
     <item
         android:id="@+id/itemLogout"

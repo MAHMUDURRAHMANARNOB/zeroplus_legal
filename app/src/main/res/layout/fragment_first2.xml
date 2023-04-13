@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/dashboard_drawer"
     android:background="#FFFFFF"
-    tools:context=".First2Fragment"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:context=".First2Fragment">
 
     <!--tools:openDrawer="start"-->
 

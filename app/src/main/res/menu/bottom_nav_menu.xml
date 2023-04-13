@@ -15,23 +15,23 @@
     <item
         android:id="@+id/itemEarnings"
         android:enabled="true"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/taka"
         android:title="Earnings" />
     <item
         android:id="@+id/itemReferrals"
         android:enabled="true"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/referral"
         android:title="Referrals" />
 
     <item
         android:id="@+id/itemProfile"
         android:enabled="true"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/profile"
         android:title="Profile" />
 
-    <item
+    <!--<item
         android:id="@+id/itemlogout"
         android:enabled="true"
         android:icon="@drawable/logout_icon"
-        android:title="Logout" />
+        android:title="Logout" />-->
 </menu>

@@ -50,7 +50,7 @@ public class First2Fragment extends Fragment {
 
                     case R.id.itemEarnings:
                         /*fragment = fragmentHome;*/
-                        fragment = new ShareMatterWebFragment();
+                        fragment = new EarningsFragment();
                         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.mainFrame, fragment);
                         ft.commit();
@@ -65,7 +65,7 @@ public class First2Fragment extends Fragment {
 
                     case R.id.itemReferrals:
                         /*fragment = fragmentClass;*/
-                        fragment = new LawOfficeFragment();
+                        fragment = new ReferralsFragment();
                         FragmentTransaction ft2 = getActivity().getSupportFragmentManager().beginTransaction();
                         ft2.replace(R.id.mainFrame, fragment);
                         ft2.commit();
@@ -73,36 +73,13 @@ public class First2Fragment extends Fragment {
 
                     case R.id.itemProfile:
                         /*fragment = fragmentClass;*/
-                        fragment = new LawOfficeFragment();
+                        fragment = new ProfileFragment();
                         FragmentTransaction ft3 = getActivity().getSupportFragmentManager().beginTransaction();
                         ft3.replace(R.id.mainFrame, fragment);
                         ft3.commit();
                         break;
 
-                    case R.id.itemlogout:
-                        /*fragment = fragmentDoubts;*/
-                        /*fragment = new ;
-                        FragmentTransaction ft2 = getActivity().getSupportFragmentManager().beginTransaction();
-                        ft2.replace(R.id.mainFrame, fragment);
-                        ft2.commit();*/
-
-                        /*SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("remember", "flase");
-                        editor.apply();
-
-                        String logout = "Logged Out";
-                        Toast toast = Toast.makeText(
-                                getActivity().getApplicationContext(),
-                                Html.fromHtml("<h3><font color='#87CEEB'>"  +logout+  "</font></h3>"),
-                                Toast.LENGTH_LONG);
-
-                        // Set the Toast display position layout center
-                        toast.setGravity(Gravity.CENTER,0,50);
-                        // Finally, show the toast
-                        int lengthShort = Toast.LENGTH_SHORT;
-                        toast.setDuration(lengthShort);
-                        toast.show();*/
+                    /*case R.id.itemlogout:
 
                         SharedPreferences.Editor editor = prf.edit();
                         editor.clear();
@@ -114,10 +91,10 @@ public class First2Fragment extends Fragment {
                         startActivity(intent);
                         getActivity().finish();
 
-                        /*Intent intent = new Intent(getActivity(), MainActivity.class);
+                        *//*Intent intent = new Intent(getActivity(), MainActivity.class);
                         startActivity(intent);
-                        getActivity().finish();*/
-                        break;
+                        getActivity().finish();*//*
+                        break;*/
 
                     default:
                         /* fragment = fragmentHome;*/

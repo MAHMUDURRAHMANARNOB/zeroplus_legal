@@ -30,4 +30,19 @@
         android:name="com.zeroplus.zeroplus_legal.LawOfficeFragment"
         android:label="fragment_law_office"
         tools:layout="@layout/fragment_law_office" />
+    <fragment
+        android:id="@+id/earningsFragment"
+        android:name="com.zeroplus.zeroplus_legal.EarningsFragment"
+        android:label="fragment_earnings"
+        tools:layout="@layout/fragment_earnings" />
+    <fragment
+        android:id="@+id/referralsFragment"
+        android:name="com.zeroplus.zeroplus_legal.ReferralsFragment"
+        android:label="fragment_referrals"
+        tools:layout="@layout/fragment_referrals" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.zeroplus.zeroplus_legal.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
