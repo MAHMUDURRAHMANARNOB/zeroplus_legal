@@ -63,13 +63,13 @@ public class First2Fragment extends Fragment {
                         ft1.commit();
                         break;
 
-                    case R.id.itemReferrals:
-                        /*fragment = fragmentClass;*/
+                    /*case R.id.itemReferrals:
+                        *//*fragment = fragmentClass;*//*
                         fragment = new ReferralsFragment();
                         FragmentTransaction ft2 = getActivity().getSupportFragmentManager().beginTransaction();
                         ft2.replace(R.id.mainFrame, fragment);
                         ft2.commit();
-                        break;
+                        break;*/
 
                     case R.id.itemProfile:
                         /*fragment = fragmentClass;*/
