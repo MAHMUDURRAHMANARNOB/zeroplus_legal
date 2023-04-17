@@ -27,6 +27,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Packages"
+            android:exported="false" />
+        <activity
             android:name=".DashboardActivity"
             android:exported="false"
             android:label="@string/title_activity_dashboard"
@@ -34,9 +37,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- SplashScreen -->
+        </activity> <!-- SplashScreen -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -46,15 +47,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Main Activity -->
+        </activity> <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Zeroplus_legal.NoActionBar">
+            android:theme="@style/Theme.Zeroplus_legal.NoActionBar"></activity>
 
-        </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

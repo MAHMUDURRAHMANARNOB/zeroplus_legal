@@ -16,8 +16,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -124,6 +127,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 Toast.makeText(this,"itemDashboard", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.itemPackages:
+                Intent PackagesInt = new Intent(this,Packages.class);
+                startActivity(PackagesInt);
                 Toast.makeText(this,"itemPackages", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.itemAccSettings:
