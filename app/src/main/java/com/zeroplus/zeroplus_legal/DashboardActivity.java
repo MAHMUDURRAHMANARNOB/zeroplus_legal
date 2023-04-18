@@ -122,20 +122,24 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         switch (item.getItemId()){
             case R.id.itemDashboard:
-                Intent Dashintent = new Intent(this,DashboardActivity.class);
-                startActivity(Dashintent);
-                Toast.makeText(this,"itemDashboard", Toast.LENGTH_SHORT).show();
+                /*Intent Dashintent = new Intent(this,DashboardActivity.class);
+                startActivity(Dashintent);*/
+                Toast.makeText(this,"Dashboard", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.itemPackages:
                 Intent PackagesInt = new Intent(this,Packages.class);
                 startActivity(PackagesInt);
-                Toast.makeText(this,"itemPackages", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"itemPackages", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.itemAccSettings:
-                Toast.makeText(this,"itemAccSettings", Toast.LENGTH_SHORT).show();
+                Intent AccSettInt = new Intent(this,AccountSettingsActivity.class);
+                startActivity(AccSettInt);
+//                Toast.makeText(this,"itemAccSettings", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.itemProSettings:
-                Toast.makeText(this,"profile Settings", Toast.LENGTH_SHORT).show();
+                Intent ProSettInt = new Intent(this,ProfileSettingsActivity.class);
+                startActivity(ProSettInt);
+//                Toast.makeText(this,"profile Settings", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.itemLogout:
                 SharedPreferences.Editor editor = prf.edit();

@@ -32,6 +32,9 @@
                 app:cardElevation="5dp"
                 app:cardMaxElevation="7dp"
                 android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -42,10 +45,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:weightSum="2"
-                android:clickable="true"
                 android:elevation="8dp"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:orientation="horizontal">
 
 
@@ -85,7 +85,10 @@
                 app:cardMaxElevation="7dp"
                 android:layout_margin="5dp"
                 app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
             <LinearLayout
                 android:id="@+id/LLWR"
@@ -94,10 +97,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:weightSum="2"
-                android:clickable="true"
                 android:elevation="8dp"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -145,7 +145,10 @@
                 app:cardElevation="5dp"
                 app:cardMaxElevation="7dp"
                 app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
             <LinearLayout
                 android:id="@+id/LLWH"
                 android:layout_width="match_parent"
@@ -153,10 +156,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:weightSum="2"
-                android:clickable="true"
                 android:elevation="8dp"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:orientation="horizontal">
 
                 <ImageButton
