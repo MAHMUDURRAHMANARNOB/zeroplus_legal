@@ -9,6 +9,15 @@ public class MyApplication extends Application {
     private String id;
     private String name;
 
+    /*After Login Information*/
+    private String lName;
+    private String lEmail;
+    private String lPhone;
+    private String lUname;
+    private String lRefer;
+
+
+
 
     private String phone;
     private String Rname;
@@ -141,6 +150,49 @@ public class MyApplication extends Application {
 
     public void setSubCatTitle(String subCatTitle) {
         SubCatTitle = subCatTitle;
+    }
+
+
+    /*After Login*/
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public String getlEmail() {
+        return lEmail;
+    }
+
+    public void setlEmail(String lEmail) {
+        this.lEmail = lEmail;
+    }
+
+    public String getlPhone() {
+        return lPhone;
+    }
+
+    public void setlPhone(String lPhone) {
+        this.lPhone = lPhone;
+    }
+
+    public String getlUname() {
+        return lUname;
+    }
+
+    public void setlUname(String lUname) {
+        this.lUname = lUname;
+    }
+
+    public String getlRefer() {
+        return lRefer;
+    }
+
+    public void setlRefer(String lRefer) {
+        this.lRefer = lRefer;
     }
 
     /*URLS*/

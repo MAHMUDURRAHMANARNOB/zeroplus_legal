@@ -5,6 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".Packages"
+android:background="@color/white"
 android:fillViewport="true">
 
 
@@ -12,6 +13,21 @@ android:fillViewport="true">
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!--TOOLBAR-->
+    <LinearLayout
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <include android:id="@+id/customTool"
+            layout="@layout/toolbar_for_activities" />
+
+    </LinearLayout>
 
     <!--Super-->
     <androidx.cardview.widget.CardView
@@ -21,6 +37,7 @@ android:fillViewport="true">
         app:cardElevation="5dp"
         app:cardMaxElevation="7dp"
         app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/white"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         android:clickable="true"
@@ -28,7 +45,7 @@ android:fillViewport="true">
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toBottomOf="@id/tool" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +57,6 @@ android:fillViewport="true">
                 android:id="@+id/sup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/questrial"
                 android:gravity="center"
                 android:text="Super Lawyer"
                 android:textColor="@color/blue"
@@ -82,6 +98,7 @@ android:fillViewport="true">
         app:cardElevation="5dp"
         app:cardMaxElevation="7dp"
         app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/white"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         android:clickable="true"
@@ -101,7 +118,6 @@ android:fillViewport="true">
                 android:id="@+id/star"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/questrial"
                 android:gravity="center"
                 android:text="Star Lawyer"
                 android:textColor="@color/blue"
@@ -143,6 +159,7 @@ android:fillViewport="true">
         app:cardElevation="5dp"
         app:cardMaxElevation="7dp"
         app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/white"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         android:clickable="true"
@@ -162,7 +179,6 @@ android:fillViewport="true">
                 android:id="@+id/SP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/questrial"
                 android:gravity="center"
                 android:text="Specialist Lawyer "
                 android:textColor="@color/blue"
@@ -204,6 +220,7 @@ android:fillViewport="true">
         app:cardElevation="5dp"
         app:cardMaxElevation="7dp"
         app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/white"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         android:clickable="true"
@@ -223,7 +240,6 @@ android:fillViewport="true">
                 android:id="@+id/gen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/questrial"
                 android:gravity="center"
                 android:text="General Lawyer "
                 android:textColor="@color/blue"

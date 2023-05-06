@@ -180,8 +180,16 @@ public class FirstFragment extends Fragment {
                                 /*String id = response.getString("id");*/
                                 globalVariable.setId(response.getString("id"));
                                 Log.d("inside login response",response.toString());
+//                            Log.d("id",result.toString());
 
-                                String Name = globalVariable.setName(response.getString("name"));
+                                globalVariable.setlName(response.getString("name"));
+                                globalVariable.setlEmail(response.getString("email"));
+                                globalVariable.setlPhone(response.getString("phone"));
+                                globalVariable.setlRefer(response.getString("username"));
+                                globalVariable.setlRefer(response.getString("refer"));
+
+                                String msg = response.getString("message");
+                                Log.d("response", msg);
 
 
                                 Thread thread = new Thread(new Runnable() {
@@ -197,7 +205,7 @@ public class FirstFragment extends Fragment {
                                 });
                                 thread.start();
 
-                                Toast.makeText(getActivity(), "--> Success <--", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 
 
                             } catch (JSONException e) {

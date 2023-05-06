@@ -272,20 +272,21 @@ public class loginFragment extends Fragment {
                         try {
 
                             /*parse from response*/
-                            Boolean result = response.getBoolean("result");
+                            String result = response.getString("result");
+                            Log.d("inside login response",result);
                             /*String id = response.getString("id");*/
                             globalVariable.setId(response.getString("id"));
                             Log.d("inside login response",response.toString());
+//                            Log.d("id",result.toString());
 
-                            String Name = globalVariable.setName(response.getString("name"));
+                            globalVariable.setlName(response.getString("name"));
+                            globalVariable.setlEmail(response.getString("email"));
+                            globalVariable.setlPhone(response.getString("phone"));
+                            globalVariable.setlRefer(response.getString("username"));
+                            globalVariable.setlRefer(response.getString("refer"));
 
-
-                            /*NavHostFragment.findNavController(loginFragment.this)
-                                    .navigate(R.id.action_loginFragment_to_zeroplusWebviewFragment);*/
-                            /*NavHostFragment.findNavController(loginFragment.this)
-                                    .navigate(R.id.action_loginFragment_to_shareMatterFragment);*/
-                            /*NavHostFragment.findNavController(loginFragment.this)
-                                    .navigate(R.id.action_loginFragment_to_shareMatterWebFragment);*/
+                            String msg = response.getString("message");
+                            Log.d("response", msg);
 
                             Thread thread = new Thread(new Runnable() {
                                 @Override
@@ -300,7 +301,7 @@ public class loginFragment extends Fragment {
                             });
                             thread.start();
 
-                            Toast.makeText(getActivity(), "--> Success <--", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 
 
                         } catch (JSONException e) {
@@ -319,7 +320,6 @@ public class loginFragment extends Fragment {
                             //custom toast end
                             e.printStackTrace();
                         }
-                        /*Log.d("Response From API",response.toString());*/
                     }
                 },
                 new Response.ErrorListener() {
@@ -339,8 +339,6 @@ public class loginFragment extends Fragment {
                         toast.setDuration(lengthShort);
                         toast.show();
                         //Toast.makeText(getActivity(), "Check your connection and provide valid user name and password ", Toast.LENGTH_LONG).show();
-
-
                     }
                 })
         {
@@ -363,149 +361,6 @@ public class loginFragment extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
-    }
-
-
-    private void processDataForShareMatter() {
-        final MyApplication globalVariable = (MyApplication) getActivity().getApplication();
-        String id  = globalVariable.getId();
-
-        JSONObject parameter = new JSONObject();
-        try {
-            parameter.put("user_id", id);
-
-            Log.d("global variable", id);
-            Log.d("parameter", String.valueOf(parameter));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        String ApiUrl=((MyApplication) getActivity().getApplication()).getDataURL()+"matterShare";
-        Log.d("URL",ApiUrl);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ApiUrl,parameter,
-                new Response.Listener<JSONObject>(){
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("request",response.toString());
-                        try {
-                            boolean success = response.getBoolean("success");
-
-                            Log.d("inside response", response.toString());
-                            if (success){
-                                String Cyclonedata = response.getString("Cyclonedata");
-
-
-                                JSONArray jsonArrayCD = new JSONArray(response.getString("Cyclonedata"));
-
-                                for (int i=0;i<jsonArrayCD.length();i++){
-                                    /*double Cyclonelatitude=globalVariable.setCyclonelatitude(jsonArrayCD.getJSONObject(i).getDouble("latitude"));
-                                    double Cyclonelongitude=globalVariable.setCyclonelongitude(jsonArrayCD.getJSONObject(i).getDouble("longitude"));
-                                    Log.d("cyclone latlang ", Cyclonelatitude+"  "+Cyclonelongitude);
-
-                                    String CycloneName=globalVariable.setCycloneName(jsonArrayCD.getJSONObject(i).getString("cyclone_name"));
-                                    Log.d("cyclone name ", CycloneName);
-                                    String WindSpeed=globalVariable.setWindSpeed(jsonArrayCD.getJSONObject(i).getString("windspeed"));
-                                    int AlertLevel=globalVariable.setAlertLevel(jsonArrayCD.getJSONObject(i).getInt("alertLevel"));
-                                    String Radius=globalVariable.setRadius(jsonArrayCD.getJSONObject(i).getString("radius"));
-                                    String Direction=globalVariable.setDirection(jsonArrayCD.getJSONObject(i).getString("direction"));
-                                    String Message=globalVariable.setMessage(jsonArrayCD.getJSONObject(i).getString("msg"));
-                                    String LocationPointCyclone=globalVariable.setLocationPointCyclone("( "+Cyclonelatitude+" , "+Cyclonelongitude+" )");*/
-
-                                }
-                                Log.d("Cyclone Data", Cyclonedata);
-
-//                                 Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_LONG).show();
-                            }
-                            else{
-                                Log.d("Success", "not succeed");
-                            }
-                        }
-                        catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
-                        Log.d("inside Else",error.toString());
-                    }
-                }
-        );
-
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        queue.add(request);
-    }
-
-
-    private void processCatData() {
-        MyApplication globalVariable = (MyApplication) getActivity().getApplication();
-
-        String ApiUrl=((MyApplication) getActivity().getApplication()).getApiUrl()+"android/categorydata";
-        Log.d("URL",ApiUrl);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ApiUrl,null,
-                new Response.Listener<JSONObject>(){
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("request",response.toString());
-                        try {
-                            boolean success = response.getBoolean("success");
-
-                            Log.d("inside response", response.toString());
-                            if (success){
-
-                                JSONArray jsonArrayCD = new JSONArray(response.getString("CategoryData"));
-
-                                for (int i=0;i<jsonArrayCD.length();i++){
-                                    categoryList cl = new categoryList();
-
-                                    String cat_id=jsonArrayCD.getJSONObject(i).getString("id");
-                                    String cat_title=jsonArrayCD.getJSONObject(i).getString("name");
-                                    globalVariable.setCatId(cat_id);
-                                    globalVariable.setCatId(cat_title);
-
-
-
-                                    /*double Cyclonelatitude=globalVariable.setCyclonelatitude(jsonArrayCD.getJSONObject(i).getDouble("latitude"));
-                                    double Cyclonelongitude=globalVariable.setCyclonelongitude(jsonArrayCD.getJSONObject(i).getDouble("longitude"));
-                                    Log.d("cyclone latlang ", Cyclonelatitude+"  "+Cyclonelongitude);
-
-                                    String CycloneName=globalVariable.setCycloneName(jsonArrayCD.getJSONObject(i).getString("cyclone_name"));
-                                    Log.d("cyclone name ", CycloneName);
-                                    String WindSpeed=globalVariable.setWindSpeed(jsonArrayCD.getJSONObject(i).getString("windspeed"));
-                                    int AlertLevel=globalVariable.setAlertLevel(jsonArrayCD.getJSONObject(i).getInt("alertLevel"));
-                                    String Radius=globalVariable.setRadius(jsonArrayCD.getJSONObject(i).getString("radius"));
-                                    String Direction=globalVariable.setDirection(jsonArrayCD.getJSONObject(i).getString("direction"));
-                                    String Message=globalVariable.setMessage(jsonArrayCD.getJSONObject(i).getString("msg"));
-                                    String LocationPointCyclone=globalVariable.setLocationPointCyclone("( "+Cyclonelatitude+" , "+Cyclonelongitude+" )");*/
-                                }
-//                                 Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_LONG).show();
-                            }
-                            else{
-                                Log.d("Success", "not succeed");
-                            }
-                        }
-                        catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
-                        Log.d("inside Else",error.toString());
-                    }
-                }
-        );
-
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        queue.add(request);
     }
 
 

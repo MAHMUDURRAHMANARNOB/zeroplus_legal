@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".PaymentSettings">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--TOOLBAR-->
+        <LinearLayout
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include android:id="@+id/customTool"
+                layout="@layout/toolbar_for_activities" />
+
+        </LinearLayout>
+
+        <!--Bank Info Update-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/BIU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tool">
+
+            <LinearLayout
+                android:id="@+id/biu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <LinearLayout
+                    android:id="@+id/bankInfoShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Bank Info"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/biIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bankInfoHidden"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:animateLayoutChanges="true"
+                    android:visibility="gone">
+
+                    <!--Bank Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayBName"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Bank Name"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/bankName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Bank Account Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayBAccName"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Bank Account Name"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/bankAccName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Bank Account Number-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayBAccNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Bank Account Number"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/bankAccNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Routing/IBAN/SWIFT/BIC-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayRouting"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Routing/IBAN/SWIFT/BIC"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/routing"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:text="Save"
+                        app:backgroundTint="@android:color/holo_green_dark"
+                        app:cornerRadius="25dp"
+                        app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:iconGravity="textEnd"
+                        app:iconTint="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Add Payment Method-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/APM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/BIU">
+
+            <LinearLayout
+                android:id="@+id/apm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/addpaymentShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Add Payment Method"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/apIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/addpaymentHidden"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:animateLayoutChanges="true"
+                    android:visibility="gone">
+
+                    <!--Bank Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayCBrand"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Card Brand"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cardBrand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Bank Account Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayCNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Card Number"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cardNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Bank Account Number-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayHName"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Holder Name"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/holderName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Routing/IBAN/SWIFT/BIC-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayCExpiry"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Card Expiry"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cardExpiry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSave2"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:text="Save"
+                        app:backgroundTint="@android:color/holo_green_dark"
+                        app:cornerRadius="25dp"
+                        app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:iconGravity="textEnd"
+                        app:iconTint="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Add Mobile Banking-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/AMB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/APM">
+
+            <LinearLayout
+                android:id="@+id/amb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/mobileBankingShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Add Mobile Banking"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/mbIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mobileBankingHidden"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:animateLayoutChanges="true"
+                    android:visibility="gone">
+
+
+                    <!--Select Type-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="2"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:text="Payment Method"
+                            android:textColor="@color/blue" />
+
+                        <Spinner
+                            android:id="@+id/PaymentSelector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_spinner"
+                            android:layout_weight="1.5" />
+                    </LinearLayout>
+
+                    <!--Number-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLayNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Number"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/MBnumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSave3"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:text="Save"
+                        app:backgroundTint="@android:color/holo_green_dark"
+                        app:cornerRadius="25dp"
+                        app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:iconGravity="textEnd"
+                        app:iconTint="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

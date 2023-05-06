@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
@@ -23,6 +24,7 @@ public class DashboardFragment extends Fragment {
 
     DrawerLayout drawerDashboard;
     NavigationView navigationView;
+    TextView zcode, balance;
     ImageView three_dot;
     Toolbar custoolbar;
     private FragmentDashboardBinding binding;
@@ -40,6 +42,13 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        zcode = view.findViewById(R.id.txtzcode);
+        balance = view.findViewById(R.id.txtbalance);
+
+        MyApplication globalVariable = (MyApplication) getActivity().getApplication();
+        String refer = globalVariable.getlRefer();
+
+        zcode.setText(refer);
 
 
     }

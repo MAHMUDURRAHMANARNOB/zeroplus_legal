@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment"
+    android:background="@color/white"
     android:fillViewport="true">
 
 
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:cardCornerRadius="25dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -44,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:gravity="center"
-                    android:text="Name"
+                    android:text="Mahmudur Rahman"
                     android:textColor="@color/blue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -54,9 +56,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:fontFamily="@font/questrial"
                     android:gravity="center"
-                    android:text="+8801727260971"
+                    android:text="+8801727431405"
                     android:textColor="@color/blue" />
 
                 <Button
@@ -113,7 +114,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:fontFamily="@font/questrial"
                         android:text="BIO"
                         android:textColor="@color/legal"
                         android:textSize="16sp"
@@ -156,7 +156,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
-                            android:text="Something About YourSelf"
+                            android:text="Analytical and detail-oriented Android app developer"
                             android:textColor="#072947" />
                     </LinearLayout>
 
@@ -205,7 +205,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:fontFamily="@font/questrial"
                         android:text="Professional Information"
                         android:textColor="@color/legal"
                         android:textSize="16sp"
@@ -257,7 +256,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
-                            android:text="Skill list"
+                            android:text="Android UI, Implementing navigation, Android testing, Working with data etc."
                             android:textColor="#072947" />
                     </LinearLayout>
 
@@ -297,7 +296,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
-                            android:text="hourRate"
+                            android:text="1500"
                             android:textColor="#072947" />
                     </LinearLayout>
 

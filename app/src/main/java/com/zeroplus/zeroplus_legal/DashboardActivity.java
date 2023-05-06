@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     DrawerLayout drawerDashboard;
     NavigationView navigationView;
     ImageView three_dot;
+    TextView Name;
     Toolbar custoolbar;
 
     @Override
@@ -52,6 +55,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         drawerDashboard = findViewById(R.id.dashboard_drawer);
         navigationView = findViewById(R.id.nav_view);
         custoolbar = findViewById(R.id.homeTool);
+        Name = findViewById(R.id.tool_txtUName);
+
+        MyApplication globalVariable = (MyApplication) this.getApplication();
+        String name = globalVariable.getlName();
+        Name.setText(name);
 
 //        getSupportActionBar().hide();
         three_dot = findViewById(R.id.tool_menu);

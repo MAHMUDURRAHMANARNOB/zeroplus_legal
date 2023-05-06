@@ -5,12 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     tools:context=".ProfileSettingsActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!--TOOLBAR-->
+        <LinearLayout
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include android:id="@+id/customTool"
+                layout="@layout/toolbar_for_activities" />
+
+        </LinearLayout>
 
         <!--Basic Info-->
         <androidx.cardview.widget.CardView
@@ -22,14 +39,14 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="7dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardMaxElevation="5dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tool">
 
             <LinearLayout
                 android:id="@+id/LLBI"
@@ -77,9 +94,9 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             app:cardBackgroundColor="#2196F3"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="7dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardMaxElevation="5dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -132,9 +149,9 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="7dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardMaxElevation="5dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -187,9 +204,9 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             app:cardBackgroundColor="#29363C"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="7dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardMaxElevation="5dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -242,9 +259,9 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="7dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardMaxElevation="5dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"

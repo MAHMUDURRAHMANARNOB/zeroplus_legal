@@ -109,7 +109,7 @@
                     android:id="@+id/txtzcode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="ZP0003"
                     android:background="@drawable/item_back"
                     android:textColor="@color/legal" />
             </LinearLayout>
@@ -134,7 +134,7 @@
                     android:id="@+id/txtbalance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="৳5000"
                     android:background="@drawable/item_back"
                     android:textColor="@color/legal" />
             </LinearLayout>

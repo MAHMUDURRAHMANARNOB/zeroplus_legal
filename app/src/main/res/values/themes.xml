@@ -50,4 +50,9 @@
         <item name="fullscreenBackgroundColor">@color/legal</item>
         <item name="fullscreenTextColor">@color/legal</item>
     </style>
+
+    <style name="Theme.Zeroplus_legal.CustomActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
