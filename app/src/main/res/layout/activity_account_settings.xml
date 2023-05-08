@@ -80,6 +80,14 @@
                         android:layout_height="30dp"
                         android:backgroundTint="@color/white"
                         app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+
+                    <ImageButton
+                        android:id="@+id/cpcIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_up_24" />
                 </LinearLayout>
 
             <LinearLayout

@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class AccountSettingsActivity extends AppCompatActivity {
 
     LinearLayout LLPS,CP,HiddenProcessCP,HiddenProcessExpandCP;
-    ImageButton ExpandBtnCP;
+    ImageButton ExpandBtnCP,CloseBtnCP;
 
 
     @Override
@@ -45,20 +45,17 @@ public class AccountSettingsActivity extends AppCompatActivity {
         /*Change Password*/
         CP = (LinearLayout) findViewById(R.id.cp);
         ExpandBtnCP = (ImageButton) findViewById(R.id.cpIMB);
+        CloseBtnCP = (ImageButton) findViewById(R.id.cpcIMB);
         HiddenProcessCP = (LinearLayout) findViewById(R.id.changePassHidden);
         HiddenProcessExpandCP = (LinearLayout) findViewById(R.id.changePassShow);
         HiddenProcessCP.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        CP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { expand(HiddenProcessCP); }
-        });
-        ExpandBtnCP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                expand(HiddenProcessCP);
-            }
-        });
+        CP.setOnClickListener(view->
+                expand(HiddenProcessCP,ExpandBtnCP,CloseBtnCP));
+        ExpandBtnCP.setOnClickListener(view ->
+                expand(HiddenProcessCP,ExpandBtnCP,CloseBtnCP));
+        CloseBtnCP.setOnClickListener(view ->
+                expand(HiddenProcessCP,ExpandBtnCP,CloseBtnCP));
 
 
 
@@ -75,8 +72,16 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
     }
 
-    private void expand(LinearLayout Process) {
-        int v = (Process.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+    private void expand(LinearLayout Process, ImageButton openButton,ImageButton closeButton) {
+        int v = ( Process.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+        // Set the visibility of the open and close buttons based on the visibility of the Process layout
+        if (v == View.VISIBLE) {
+            openButton.setVisibility(View.GONE);
+            closeButton.setVisibility(View.VISIBLE);
+        } else {
+            openButton.setVisibility(View.VISIBLE);
+            closeButton.setVisibility(View.GONE);
+        }
         TransitionManager.beginDelayedTransition(Process, new AutoTransition());
         Process.setVisibility(v);
     }

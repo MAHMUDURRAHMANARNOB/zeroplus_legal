@@ -27,6 +27,74 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".profileEdit.Portfolio"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+        <activity
+            android:name=".profileEdit.Educational"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+        <activity
+            android:name=".profileEdit.Experience"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+        <activity
+            android:name=".profileEdit.Professional"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+        <activity
+            android:name=".profileEdit.BasicInfo"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+        <activity
+            android:name=".Earnings.WithdrawHistory"
+            android:exported="false"
+            android:label="Withdraw History" />
+        <activity
+            android:name=".Earnings.WithdrawRequest"
+            android:exported="false"
+            android:label="Withdraw Request" />
+        <activity
+            android:name=".Earnings.EarningHistory"
+            android:exported="false"
+            android:label="Earning History" />
+        <activity
+            android:name=".lawChamber.Sections"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.Courts"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.panelLawyers"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.personalCases"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.zpCases"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.MyClients"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.ServiceRequest"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.SoldServices"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".lawChamber.MyServices"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
             android:name=".PaymentSettings"
             android:exported="false"
             android:label="Payment Settings"

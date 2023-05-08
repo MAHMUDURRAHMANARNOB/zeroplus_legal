@@ -22,7 +22,7 @@ public class PaymentSettings extends AppCompatActivity {
     Spinner spinner_pm;
     LinearLayout HiddenProcessBI,HiddenProcessExpandBI,HiddenProcessAP, HiddenProcessExpandAP,HiddenProcessMB,HiddenProcessExpandMB;
     LinearLayout BIU,APM,AMB;
-    ImageButton ExpandBtnBI, ExpandBtnAP, ExpandBtnMB;
+    ImageButton ExpandBtnBI, ExpandBtnAP, ExpandBtnMB, CloseBtnBI, CloseBtnAP, CloseBtnMB;
     private PaymentMethodAdapter pmadapter;
 
     @Override
@@ -50,62 +50,45 @@ public class PaymentSettings extends AppCompatActivity {
         /*Basic Info*/
         BIU = (LinearLayout) findViewById(R.id.biu);
         ExpandBtnBI = (ImageButton) findViewById(R.id.biIMB);
+        CloseBtnBI = (ImageButton) findViewById(R.id.bicIMB);
         HiddenProcessBI = (LinearLayout) findViewById(R.id.bankInfoHidden);
         HiddenProcessExpandBI = (LinearLayout) findViewById(R.id.bankInfoShow);
         HiddenProcessBI.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        BIU.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { expand(HiddenProcessBI); }
-        });
-        ExpandBtnBI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                expand(HiddenProcessBI);
-            }
-        });
+        BIU.setOnClickListener(view -> expand(HiddenProcessBI,ExpandBtnBI,CloseBtnBI));
+        ExpandBtnBI.setOnClickListener(view -> expand(HiddenProcessBI,ExpandBtnBI,CloseBtnBI));
+        CloseBtnBI.setOnClickListener(view -> expand(HiddenProcessBI,ExpandBtnBI,CloseBtnBI));
+
 
         /*Payment Method*/
         APM = (LinearLayout) findViewById(R.id.apm);
         ExpandBtnAP = (ImageButton) findViewById(R.id.apIMB);
+        CloseBtnAP = (ImageButton) findViewById(R.id.apcIMB);
         HiddenProcessAP = (LinearLayout) findViewById(R.id.addpaymentHidden);
         HiddenProcessExpandAP = (LinearLayout) findViewById(R.id.addpaymentShow);
         HiddenProcessAP.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        APM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                expand(HiddenProcessAP);
-            }
-        });
-
-        ExpandBtnAP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                expand(HiddenProcessAP);
-            }
-        });
+        APM.setOnClickListener(view->
+                expand(HiddenProcessAP,ExpandBtnAP,CloseBtnAP));
+        ExpandBtnAP.setOnClickListener(view ->
+                expand(HiddenProcessAP,ExpandBtnAP,CloseBtnAP));
+        CloseBtnAP.setOnClickListener(view ->
+                expand(HiddenProcessAP,ExpandBtnAP,CloseBtnAP));
 
         /*Mobile Banking*/
         AMB = (LinearLayout) findViewById(R.id.amb);
         ExpandBtnMB = (ImageButton) findViewById(R.id.mbIMB);
+        CloseBtnMB = (ImageButton) findViewById(R.id.mbcIMB);
         HiddenProcessMB = (LinearLayout) findViewById(R.id.mobileBankingHidden);
         HiddenProcessExpandMB = (LinearLayout) findViewById(R.id.mobileBankingShow);
         HiddenProcessMB.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        AMB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                expand(HiddenProcessMB);
-            }
-        });
-
-        ExpandBtnMB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                expand(HiddenProcessMB);
-            }
-        });
+        AMB.setOnClickListener(view ->
+                expand(HiddenProcessMB,ExpandBtnMB,CloseBtnMB));
+        ExpandBtnMB.setOnClickListener(view ->
+                expand(HiddenProcessMB,ExpandBtnMB,CloseBtnMB));
+        CloseBtnMB.setOnClickListener(view ->
+                expand(HiddenProcessMB,ExpandBtnMB,CloseBtnMB));
 
 
         /*Payment Method Spinner*/
@@ -118,8 +101,21 @@ public class PaymentSettings extends AppCompatActivity {
 
     }
 
-    private void expand(LinearLayout Process) {
+    /*private void expand(LinearLayout Process) {
         int v = (Process.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+        TransitionManager.beginDelayedTransition(Process, new AutoTransition());
+        Process.setVisibility(v);
+    }*/
+    private void expand(LinearLayout Process, ImageButton openButton,ImageButton closeButton) {
+        int v = ( Process.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+        // Set the visibility of the open and close buttons based on the visibility of the Process layout
+        if (v == View.VISIBLE) {
+            openButton.setVisibility(View.GONE);
+            closeButton.setVisibility(View.VISIBLE);
+        } else {
+            openButton.setVisibility(View.VISIBLE);
+            closeButton.setVisibility(View.GONE);
+        }
         TransitionManager.beginDelayedTransition(Process, new AutoTransition());
         Process.setVisibility(v);
     }

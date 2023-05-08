@@ -78,6 +78,15 @@
                         android:layout_height="30dp"
                         android:backgroundTint="@color/white"
                         app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+
+                    <ImageButton
+                        android:id="@+id/bicIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_up_24" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -305,6 +314,15 @@
                         android:layout_height="30dp"
                         android:backgroundTint="@color/white"
                         app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+
+                    <ImageButton
+                        android:id="@+id/apcIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_up_24" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -531,6 +549,15 @@
                         android:layout_height="30dp"
                         android:backgroundTint="@color/white"
                         app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+
+                    <ImageButton
+                        android:id="@+id/mbcIMB"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/white"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/baseline_keyboard_arrow_up_24" />
+
                 </LinearLayout>
 
                 <LinearLayout
