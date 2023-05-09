@@ -11,21 +11,243 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <!--TOOLBAR-->
-    <LinearLayout
-        android:id="@+id/tool"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        <!--TOOLBAR-->
+        <LinearLayout
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <include android:id="@+id/customTool"
-            layout="@layout/toolbar_for_activities" />
+            <include android:id="@+id/customTool"
+                layout="@layout/toolbar_for_activities" />
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+        <!--Educational Information Update-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/EIU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tool">
+
+            <LinearLayout
+                android:id="@+id/eiu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Educational Information"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="20dp"
+                    android:animateLayoutChanges="true">
+
+                    <!--android:visibility="gone"-->
+
+                    <!--Institute Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLay_IName"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Institute Name"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/_iname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:editable="false"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Degree Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLay_Degree"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Degree Name"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/degreeName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Passing Year-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLay_passingYear"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Passing Year"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/passingYear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--CompanyLocation-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInLay_country"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:hint="Country"
+                        android:paddingTop="0dp"
+                        android:textColorHint="#0B092E"
+                        app:boxBackgroundColor="#37669900"
+                        app:boxCornerRadiusBottomEnd="30dp"
+                        app:boxCornerRadiusBottomStart="30dp"
+                        app:boxCornerRadiusTopEnd="30dp"
+                        app:boxCornerRadiusTopStart="30dp"
+                        app:boxStrokeColor="#0B092E"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:hintTextColor="#0B092E"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.609"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="#0B092E"
+                        app:prefixTextColor="#0B092E"
+                        app:suffixTextColor="#0B092E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/_country"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/convergence"
+                            android:textColor="#041F37"
+                            android:textSize="14sp"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Button
+                        android:id="@+id/btnSaveEI"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:text="Save"
+                        app:backgroundTint="@android:color/holo_green_dark"
+                        app:cornerRadius="25dp"
+                        app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:iconGravity="textEnd"
+                        app:iconTint="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
