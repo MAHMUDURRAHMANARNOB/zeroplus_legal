@@ -49,15 +49,15 @@
         <activity
             android:name=".Earnings.WithdrawHistory"
             android:exported="false"
-            android:label="Withdraw History" />
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".Earnings.WithdrawRequest"
             android:exported="false"
-            android:label="Withdraw Request" />
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".Earnings.EarningHistory"
             android:exported="false"
-            android:label="Earning History" />
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".lawChamber.Sections"
             android:exported="false"
