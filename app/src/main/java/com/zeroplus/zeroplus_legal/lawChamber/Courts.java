@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -42,6 +43,15 @@ public class Courts extends AppCompatActivity {
         });
         setSupportActionBar(toolbar);
         /*Toolbar End*/
+
+        Button btnCourtSetup = (Button) findViewById(R.id.btnCourtSetup);
+        btnCourtSetup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myServiceInt = new Intent(Courts.this, com.zeroplus.zeroplus_legal.Setup.CourtSetup.class);
+                startActivity(myServiceInt);
+            }
+        });
 
         CourtsTable=(TableLayout)findViewById(R.id.tableCourts);
         TableLayout();

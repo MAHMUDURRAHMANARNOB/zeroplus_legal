@@ -27,25 +27,37 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Setup.LawyerSetup"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".Setup.SectionSetup"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
+            android:name=".Setup.CourtSetup"
+            android:exported="false"
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
+        <activity
             android:name=".profileEdit.Portfolio"
             android:exported="false"
-            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".profileEdit.Educational"
             android:exported="false"
-            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".profileEdit.Experience"
             android:exported="false"
-            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".profileEdit.Professional"
             android:exported="false"
-            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".profileEdit.BasicInfo"
             android:exported="false"
-            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar"/>
+            android:theme="@style/Theme.Zeroplus_legal.CustomActionBar" />
         <activity
             android:name=".Earnings.WithdrawHistory"
             android:exported="false"

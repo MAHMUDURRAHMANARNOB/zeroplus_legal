@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -29,7 +30,7 @@ public class Sections extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar_for_activities);
         TextView toolbarTextView = (TextView) findViewById(R.id.Cus_tool_text);
         ImageButton backBtn =  findViewById(R.id.imgbtnBack);
-        toolbarTextView.setText("Courts");
+        toolbarTextView.setText("Sections");
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,15 @@ public class Sections extends AppCompatActivity {
         });
         setSupportActionBar(toolbar);
         /*Toolbar End*/
+
+        Button btnSectionsSetup = (Button) findViewById(R.id.btnSectionsSetup);
+        btnSectionsSetup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myServiceInt = new Intent(Sections.this, com.zeroplus.zeroplus_legal.Setup.SectionSetup.class);
+                startActivity(myServiceInt);
+            }
+        });
 
         SectionsTable=(TableLayout)findViewById(R.id.tableSections);
         TableLayout();

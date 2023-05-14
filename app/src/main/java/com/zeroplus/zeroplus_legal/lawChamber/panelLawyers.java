@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -43,6 +44,15 @@ public class panelLawyers extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         /*Toolbar End*/
+
+        Button btnlawyer_setup = (Button) findViewById(R.id.btnlawyer_setup);
+        btnlawyer_setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myServiceInt = new Intent(panelLawyers.this, com.zeroplus.zeroplus_legal.Setup.LawyerSetup.class);
+                startActivity(myServiceInt);
+            }
+        });
 
         LawyerTable=(TableLayout)findViewById(R.id.tableLawyers);
         TableLayout();
