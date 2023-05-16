@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -15,10 +16,12 @@ import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.Setup.ClientSetup;
 
 public class MyClients extends AppCompatActivity {
 
     private TableLayout MyClientsTable;
+    Button btnClientSetup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,15 @@ public class MyClients extends AppCompatActivity {
 
         MyClientsTable=(TableLayout)findViewById(R.id.tableMyClients);
         TableLayout();
+
+        btnClientSetup = (Button) findViewById(R.id.btnClientSetup);
+        btnClientSetup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myServiceInt = new Intent(MyClients.this, com.zeroplus.zeroplus_legal.Setup.ClientSetup.class);
+                startActivity(myServiceInt);
+            }
+        });
     }
 
     public void TableLayout(){
