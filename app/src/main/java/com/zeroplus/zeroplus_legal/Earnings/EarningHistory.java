@@ -2,6 +2,8 @@ package com.zeroplus.zeroplus_legal.Earnings;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,12 +16,20 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
+import com.zeroplus.zeroplus_legal.Earnings.Models.adapter_earnings;
+import com.zeroplus.zeroplus_legal.Earnings.Models.list_Earnings;
 import com.zeroplus.zeroplus_legal.R;
 import com.zeroplus.zeroplus_legal.lawChamber.Courts;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EarningHistory extends AppCompatActivity {
 
     private TableLayout EarningsTable;
+    private RecyclerView earnignsRV;
+    private RecyclerView.Adapter adapter;
+    private List<list_Earnings> earnings_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +54,30 @@ public class EarningHistory extends AppCompatActivity {
         setSupportActionBar(toolbar);
         /*Toolbar End*/
 
-        EarningsTable=(TableLayout)findViewById(R.id.tableEarnings);
-        TableLayout();
+        /*EarningsTable=(TableLayout)findViewById(R.id.tableEarnings);
+        TableLayout();*/
+
+        /*RecyclerView*/
+        earnignsRV = (RecyclerView) findViewById(R.id.RVEarning_History);
+        earnignsRV.setHasFixedSize(true);
+        earnignsRV.setLayoutManager(new LinearLayoutManager(this));
+
+        earnings_list = new ArrayList<>();
+
+        for (int i = 0; i<10; i++){
+            list_Earnings earnings = new list_Earnings(
+                    "Bashundhara" + i+1, "10000","9500","23-12-23","100"
+            );
+
+            earnings_list.add(earnings);
+        }
+        adapter = new adapter_earnings(earnings_list,this);
+        earnignsRV.setAdapter(adapter);
+
+
     }
 
-    public void TableLayout(){
+    /*public void TableLayout(){
 
         EarningsTable.removeAllViewsInLayout();
         int flag=1;
@@ -91,14 +120,14 @@ public class EarningHistory extends AppCompatActivity {
                 EarningsTable.addView(vline); // add line below heading
                 flag = 0;
             } else {
-            /*JSONObject object =jsonArray.getJSONObject(i);
+            *//*JSONObject object =jsonArray.getJSONObject(i);
             String id = object.getString("id");
             String cyclone_name = object.getString("cyclone_name");
             String member_name =  object.getString("member_name");
             String org_name = object.getString("org_name");
             String pay_amout = object.getString("pay_amout");
             String pay_gen_date = object.getString("pay_gen_date");
-            String pay_date = object.getString("pay_date");*/
+            String pay_date = object.getString("pay_date");*//*
 
                 TextView project_name = new TextView(this);
                 tableRowDesign(project_name, " project name ");
@@ -132,7 +161,7 @@ public class EarningHistory extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
     private void tableHeaderDesign(TextView a, String Text){
 
