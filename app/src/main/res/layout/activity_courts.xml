@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fillViewport="true"
-android:background="@color/white"
-tools:context=".lawChamber.Courts">
-
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".lawChamber.Courts">
+
 
     <!--TOOLBAR-->
     <LinearLayout
@@ -19,11 +16,12 @@ tools:context=".lawChamber.Courts">
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <include android:id="@+id/customTool"
+        <include
+            android:id="@+id/customTool"
             layout="@layout/toolbar_for_activities" />
 
     </LinearLayout>
@@ -33,34 +31,38 @@ tools:context=".lawChamber.Courts">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Courts"
-        android:textSize="20sp"
         android:textColor="@color/blue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool" />
 
     <Button
         android:id="@+id/btnCourtSetup"
-        android:layout_width="210dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
+        android:layout_gravity="end"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/blue"
-        android:padding="5dp"
+        android:backgroundTint="@color/white"
         android:text="Court Setup"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         app:cornerRadius="20dp"
         app:icon="@drawable/baseline_add_court"
         app:iconGravity="textEnd"
         app:iconPadding="8dp"
         app:iconSize="28dp"
-        app:iconTint="@color/white"
+        app:iconTint="@color/blue"
         app:iconTintMode="src_in"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCourts" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCourts"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="1dp" />
 
 
-    <HorizontalScrollView
+    <!--<HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,17 +85,30 @@ tools:context=".lawChamber.Courts">
             android:weightSum="100"
             tools:ignore="UselessParent"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="58dp" >
+            tools:layout_editor_absoluteY="58dp">
 
 
         </TableLayout>
 
 
-    </HorizontalScrollView>
+    </HorizontalScrollView>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCourtSetup">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVCourts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</ScrollView>
+</LinearLayout>

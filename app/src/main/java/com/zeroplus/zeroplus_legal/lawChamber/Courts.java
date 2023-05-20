@@ -2,24 +2,39 @@ package com.zeroplus.zeroplus_legal.lawChamber;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.animation.LayoutTransition;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
+import com.zeroplus.zeroplus_legal.Earnings.Models.adapter_earnings;
+import com.zeroplus.zeroplus_legal.Earnings.Models.list_Earnings;
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.lawChamber.Modals.adapter_courts;
+import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_courts;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Courts extends AppCompatActivity {
 
-    private TableLayout CourtsTable;
+    private RecyclerView courtsRV;
+    private RecyclerView.Adapter adapter;
+    private List<list_courts> courts_List;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +59,8 @@ public class Courts extends AppCompatActivity {
         setSupportActionBar(toolbar);
         /*Toolbar End*/
 
+
+
         Button btnCourtSetup = (Button) findViewById(R.id.btnCourtSetup);
         btnCourtSetup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,135 +70,24 @@ public class Courts extends AppCompatActivity {
             }
         });
 
-        CourtsTable=(TableLayout)findViewById(R.id.tableCourts);
-        TableLayout();
 
-    }
+        /*RecyclerView*/
+        courtsRV = (RecyclerView) findViewById(R.id.RVCourts);
+        courtsRV.setHasFixedSize(true);
+        courtsRV.setLayoutManager(new LinearLayoutManager(this));
 
-    public void TableLayout(){
+        courts_List = new ArrayList<>();
 
-        CourtsTable.removeAllViewsInLayout();
-        int flag=1;
+        for (int i = 0; i<10; i++){
+            list_courts courts = new list_courts(
+                    "Court 14","Court14@gmail.com","105","Dhaka","Bangladesh",
+                    "New court to be setupCourse fee: Monthly Instalment 5000 taka (Total 6 instalments)"
+            );
 
-        for (int i=-1; i<10; i++) {
-
-            TableRow tr = new TableRow(this);
-            tr.setLayoutParams(new TableLayout.LayoutParams(
-                    TableLayout.LayoutParams.MATCH_PARENT,
-                    TableLayout.LayoutParams.WRAP_CONTENT));
-
-            if (flag == 1) {
-
-                TextView Name = new TextView(this);
-                tableHeaderDesign(Name, " Name ");
-                tr.addView(Name);
-
-                TextView Phone = new TextView(this);
-                tableHeaderDesign(Phone, " Email ");
-                tr.addView(Phone);
-
-                TextView Location = new TextView(this);
-                tableHeaderDesign(Location, " Location ");
-                tr.addView(Location);
-
-                TextView Category = new TextView(this);
-                tableHeaderDesign(Category, " Category ");
-                tr.addView(Category);
-
-                TextView Country = new TextView(this);
-                tableHeaderDesign(Country, " Country ");
-                tr.addView(Country);
-
-                TextView City = new TextView(this);
-                tableHeaderDesign(City, " City ");
-                tr.addView(City);
-
-                TextView Room_No = new TextView(this);
-                tableHeaderDesign(Room_No, " Room No ");
-                tr.addView(Room_No);
-
-                TextView Description = new TextView(this);
-                tableHeaderDesign(Description, " Description ");
-                tr.addView(Description);
-
-                CourtsTable.addView(tr);
-
-                final View vline = new View(this);
-                vline.setLayoutParams(new
-                        TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2));
-                vline.setBackgroundColor(Color.BLUE);
-                CourtsTable.addView(vline); // add line below heading
-                flag = 0;
-            } else {
-            /*JSONObject object =jsonArray.getJSONObject(i);
-            String id = object.getString("id");
-            String cyclone_name = object.getString("cyclone_name");
-            String member_name =  object.getString("member_name");
-            String org_name = object.getString("org_name");
-            String pay_amout = object.getString("pay_amout");
-            String pay_gen_date = object.getString("pay_gen_date");
-            String pay_date = object.getString("pay_date");*/
-
-                TextView name = new TextView(this);
-                tableRowDesign(name, " name ");
-                tr.addView(name);
-
-                TextView email = new TextView(this);
-                tableRowDesign(email, " email ");
-                tr.addView(email);
-
-                TextView location = new TextView(this);
-                tableRowDesign(location, " location ");
-                tr.addView(location);
-
-                TextView category = new TextView(this);
-                tableRowDesign(category, " category ");
-                tr.addView(category);
-
-                TextView country = new TextView(this);
-                tableRowDesign(country, " country ");
-                tr.addView(country);
-
-                TextView city = new TextView(this);
-                tableRowDesign(city, " city ");
-                tr.addView(city);
-
-                TextView room_no = new TextView(this);
-                tableRowDesign(room_no, " room_no ");
-                tr.addView(room_no);
-
-                TextView description = new TextView(this);
-                tableRowDesign(description, " description ");
-                tr.addView(description);
-
-                CourtsTable.addView(tr);
-
-
-                final View vline1 = new View(this);
-                vline1.setLayoutParams(new
-                        TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2));
-                vline1.setBackgroundColor(Color.BLACK);
-                CourtsTable.addView(vline1);  // add line below each row
-            }
+            courts_List.add(courts);
         }
-
-
+        adapter = new adapter_courts(courts_List,this);
+        courtsRV.setAdapter(adapter);
     }
 
-    private void tableHeaderDesign(TextView a, String Text){
-
-        a.setText(Text);
-        a.setTypeface(null, Typeface.BOLD);
-        a.setTextColor(Color.WHITE);
-        a.setBackgroundResource(R.drawable.tableheader);
-        a.setTextSize(20);
-    }
-
-    private void tableRowDesign(TextView b, String RowText){
-
-        b.setText(RowText);
-        b.setBackgroundResource(R.drawable.table_row);
-        b.setTextColor(Color.BLACK);
-        b.setTextSize(17);
-    }
 }

@@ -1,79 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".lawChamber.SoldServices">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <!--TOOLBAR-->
+    <LinearLayout
+        android:id="@+id/tool"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!--TOOLBAR-->
-        <LinearLayout
-            android:id="@+id/tool"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+        <include
+            android:id="@+id/customTool"
+            layout="@layout/toolbar_for_activities" />
 
-            <include android:id="@+id/customTool"
-                layout="@layout/toolbar_for_activities" />
+    </LinearLayout>
 
-        </LinearLayout>
+    <TextView
+        android:id="@+id/txtSold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:text="List Of Sold Services"
+        android:textColor="@color/blue"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtSold"
+
+    <!--<HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSold">
+
+
+        <TableLayout
+            android:id="@+id/tableSoldService"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sold Services"
-            android:textSize="20sp"
-            android:textColor="@color/blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tool" />
+            android:layout_height="match_parent"
+            android:divider="@drawable/table_divider"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:showDividers="middle"
+            android:stretchColumns="*"
+            android:weightSum="100"
+            tools:ignore="UselessParent"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="58dp" >
 
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
+        </TableLayout>
+
+
+    </HorizontalScrollView>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSold">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVSold_Services"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fillViewport="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtSold">
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </ScrollView>
 
 
-            <TableLayout
-                android:id="@+id/tableSoldService"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:divider="@drawable/table_divider"
-                android:orientation="horizontal"
-                android:padding="5dip"
-                android:showDividers="middle"
-                android:stretchColumns="*"
-                android:weightSum="100"
-                tools:ignore="UselessParent"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="58dp" >
-
-
-            </TableLayout>
-
-
-        </HorizontalScrollView>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</ScrollView>
+</LinearLayout>
