@@ -5,26 +5,21 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.zeroplus.zeroplus_legal.databinding.FragmentDashboardBinding;
-import com.zeroplus.zeroplus_legal.lawChamber.MyServices;
-import com.zeroplus.zeroplus_legal.lawChamber.ServiceRequest;
-import com.zeroplus.zeroplus_legal.lawChamber.SoldServices;
 
 public class DashboardFragment extends Fragment {
 
@@ -34,7 +29,7 @@ public class DashboardFragment extends Fragment {
     ImageView three_dot;
     Toolbar custoolbar;
 
-    ImageButton MyService, SoldService, ServiceReq, MyClients, ZPCases, PersonalCases, PanelLawyers, Courts, Sections;
+    ImageButton MyService, SoldService, ServiceReq, MyClients, ZPCases, PersonalCases, PanelLawyers, Courts, Sections, Appointments;
     private FragmentDashboardBinding binding;
 
     @Override
@@ -60,14 +55,33 @@ public class DashboardFragment extends Fragment {
 
 
         MyService = (ImageButton) view.findViewById(R.id.ibtnMySer);
+        Glide.with(this)
+                .load(R.drawable.legal_service_anim)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(MyService);
+
         SoldService = (ImageButton) view.findViewById(R.id.ibtnSoldSer);
         ServiceReq = (ImageButton) view.findViewById(R.id.ibtnSerReq);
+
         MyClients = (ImageButton) view.findViewById(R.id.ibtnmyclients);
+        Glide.with(this)
+                .load(R.drawable.clients_anim)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(MyClients);
+
         ZPCases = (ImageButton) view.findViewById(R.id.ibtnZpCase);
         PersonalCases = (ImageButton) view.findViewById(R.id.ibtnPerCase);
         PanelLawyers = (ImageButton) view.findViewById(R.id.ibtnPanLaw);
         Courts = (ImageButton) view.findViewById(R.id.ibtncourts);
         Sections = (ImageButton) view.findViewById(R.id.ibtnSections);
+
+        Appointments = (ImageButton) view.findViewById(R.id.ibtnAppointments);
+        Glide.with(this)
+                .load(R.drawable.appointment)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(Appointments);
+
+
 
         MyService.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +161,15 @@ public class DashboardFragment extends Fragment {
 
                 Intent sectionsInt = new Intent(getActivity(), com.zeroplus.zeroplus_legal.lawChamber.Sections.class);
                 startActivity(sectionsInt);
+            }
+        });
+
+        Appointments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent appointmentsInt = new Intent(getActivity(), com.zeroplus.zeroplus_legal.lawChamber.Appointments.class);
+                startActivity(appointmentsInt);
             }
         });
 

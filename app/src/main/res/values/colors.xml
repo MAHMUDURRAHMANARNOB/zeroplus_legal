@@ -13,9 +13,16 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
-    <color name="legal">#E5A028</color>
+<!--    <color name="legal">#E5A028</color>-->
+    <color name="legal">#E3AF4F</color>
+    <color name="legal_blue">#224B74</color>
+    <color name="legal_gray">#484D53</color>
     <!--<color name="legal">#A78A5A</color>-->
     <color name="lavender">#EAEAEC</color>
+    <color name="lavender_dark">#734F96</color>
+    <color name="green">#1FB141</color>
+    <color name="darkGreen">#257533</color>
+    <color name="orange">#F46730</color>
 
 
 </resources>

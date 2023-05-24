@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.zeroplus.zeroplus_legal.databinding.FragmentRegistrationBinding;
@@ -46,6 +49,7 @@ public class registrationFragment extends Fragment {
     //Data Variables
     ArrayList<String> StoreContacts ;
     ArrayAdapter<String> arrayAdapter ;
+    ImageView animatedImage;
     Cursor cursor ;
     public  static final int RequestPermissionCode  = 1 ;
     String name, phonenumber ;
@@ -219,6 +223,12 @@ public class registrationFragment extends Fragment {
         /*RBPayMode=(RadioGroup) view.findViewById(R.id.RBPayMode);
         onlineRB=(RadioButton) view.findViewById(R.id.onlineRB);
         offlineRB=(RadioButton) view.findViewById(R.id.offlineRB);*/
+
+        animatedImage = view.findViewById(R.id.imgLogin);
+        Glide.with(this)
+                .load(R.drawable.judge_cuate)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(animatedImage);
 
         BacktoLogin.setOnClickListener(new View.OnClickListener() {
             @Override

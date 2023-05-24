@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.textfield.TextInputEditText;
 import com.zeroplus.zeroplus_legal.databinding.FragmentLoginBinding;
 
@@ -46,6 +49,7 @@ public class loginFragment extends Fragment {
     TextInputEditText txtInFldEmail,txtInFldPass;
     TextView forgotpasstxt, txtsignup;
     Button fabCropImage;
+    ImageView animatedImage;
     CheckBox remember;
 
 
@@ -160,15 +164,11 @@ public class loginFragment extends Fragment {
             txtInFldPass.setText(rememberMeDetails.get(SessionManager.KEY_SESSIONPASSWORD));
         }
 
-        /*SharedPreferences preferences = getActivity().getSharedPreferences("checkbox",Context.MODE_PRIVATE);
-        String checkbox = preferences.getString("remember","");
-        if(checkbox.equals("true")){
-            *//*Toast.makeText(getActivity(), "Error In Login information", Toast.LENGTH_LONG).show();*//*
-            processdata();
-        }
-        else if(checkbox.equals("false")){
-            Toast.makeText(getActivity(), "Sign In", Toast.LENGTH_LONG).show();
-        }*/
+        animatedImage = view.findViewById(R.id.imgLogin);
+        Glide.with(this)
+                .load(R.drawable.img_lawyer)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(animatedImage);
 
         binding.forgotpasstxt.setOnClickListener(new View.OnClickListener() {
             @Override

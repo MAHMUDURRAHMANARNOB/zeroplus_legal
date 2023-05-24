@@ -25,8 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EarningHistory extends AppCompatActivity {
-
-    private TableLayout EarningsTable;
     private RecyclerView earnignsRV;
     private RecyclerView.Adapter adapter;
     private List<list_Earnings> earnings_list;
@@ -53,9 +51,6 @@ public class EarningHistory extends AppCompatActivity {
         });
         setSupportActionBar(toolbar);
         /*Toolbar End*/
-
-        /*EarningsTable=(TableLayout)findViewById(R.id.tableEarnings);
-        TableLayout();*/
 
         /*RecyclerView*/
         earnignsRV = (RecyclerView) findViewById(R.id.RVEarning_History);

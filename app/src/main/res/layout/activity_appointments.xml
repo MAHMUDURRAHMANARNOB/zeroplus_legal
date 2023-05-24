@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".lawChamber.Sections">
+    tools:context=".lawChamber.Appointments">
 
     <!--TOOLBAR-->
     <LinearLayout
@@ -25,37 +25,18 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtSections"
+        android:id="@+id/txtAppointments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sections"
+        android:layout_margin="5dp"
+        android:text="List of Appointments"
         android:layout_gravity="center"
-        android:textSize="20sp"
         android:textColor="@color/blue"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool" />
-
-    <Button
-        android:id="@+id/btnSectionsSetup"
-        android:layout_width="210dp"
-        android:layout_height="60dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/white"
-        android:padding="5dp"
-        android:text="Section Setup"
-        android:textColor="@color/legal"
-        app:cornerRadius="20dp"
-        app:icon="@drawable/baseline_add_court"
-        app:iconGravity="textEnd"
-        app:iconPadding="8dp"
-        app:iconSize="28dp"
-        app:iconTint="@color/legal"
-        app:iconTintMode="src_in"
-        app:strokeColor="@color/legal"
-        app:strokeWidth="1.5dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -64,23 +45,15 @@
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSectionsSetup">
+        app:layout_constraintTop_toBottomOf="@+id/txtEarnings">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RVSections"
+            android:id="@+id/RVAppoinments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
 
     </ScrollView>
-
-
-
-
-
-
-
-
 
 </LinearLayout>

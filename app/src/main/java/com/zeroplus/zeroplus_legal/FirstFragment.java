@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.zeroplus.zeroplus_legal.databinding.FragmentFirstBinding;
 
 import org.json.JSONException;
@@ -35,6 +38,7 @@ import java.util.Map;
 
 public class FirstFragment extends Fragment {
     Button loginbtn, regbtn, getbackLogin;
+    ImageView animatedImage;
     private FragmentFirstBinding binding;
 
     @Override
@@ -64,6 +68,11 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        animatedImage = view.findViewById(R.id.imageView2);
+        Glide.with(this)
+                .load(R.drawable.lawyer_first_img)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(animatedImage);
 
 
         SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
