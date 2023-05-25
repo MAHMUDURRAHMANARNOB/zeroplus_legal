@@ -530,29 +530,6 @@
         </LinearLayout>
 
 
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:elevation="10dp"
-            android:background="@drawable/corner_radius_linearlayout"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/Endguideline"
-            app:layout_constraintStart_toStartOf="@id/Startguideline"
-            app:layout_constraintTop_toBottomOf="@+id/regitrationLL">-->
-
-            <!--<androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/Endguideline"
-                app:layout_constraintStart_toStartOf="@id/Startguideline"
-                app:layout_constraintTop_toBottomOf="@+id/regitrationLL">-->
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInLayName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -560,30 +537,26 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:layout_marginTop="10dp"
             android:hint="Name"
-            android:paddingTop="0dp"
             android:textColorHint="@color/legal_gray"
             app:boxBackgroundColor="@color/lavender"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="#061B2B"
+            app:boxStrokeColor="@color/legal_gray"
             app:layout_constraintEnd_toEndOf="@id/Endguideline"
             app:layout_constraintHorizontal_bias="0.573"
             app:layout_constraintStart_toStartOf="@id/Startguideline"
             app:layout_constraintTop_toBottomOf="@id/regitrationLL"
-            app:placeholderTextColor="@color/legal_gray"
-            app:prefixTextColor="#071129"
-            app:suffixTextColor="#071129">
+            app:placeholderTextColor="@color/legal_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInFldName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/convergence"
-                android:shadowColor="#041A22"
+                android:shadowColor="@color/legal_gray"
                 android:textColor="@color/legal_blue"
                 android:textColorHint="@color/legal_gray"
                 android:textSize="14sp"
@@ -597,9 +570,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:layout_marginTop="20dp"
             android:hint="Phone"
-            android:paddingTop="0dp"
             android:textColorHint="@color/legal_gray"
             app:boxBackgroundColor="@color/lavender"
             app:boxCornerRadiusBottomEnd="10dp"
@@ -612,8 +583,8 @@
             app:layout_constraintStart_toStartOf="@id/Startguideline"
             app:layout_constraintTop_toBottomOf="@+id/txtInLayName"
             app:placeholderTextColor="@color/legal_gray"
-            app:prefixTextColor="#071129"
-            app:suffixTextColor="#071129">
+            app:prefixTextColor="@color/legal_gray"
+            app:suffixTextColor="@color/legal_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInFldPhone"
@@ -670,23 +641,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:layout_marginTop="20dp"
             android:hint="Password"
-            android:paddingTop="0dp"
             android:textColorHint="@color/legal_gray"
             app:boxBackgroundColor="@color/lavender"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="#061B2B"
+            app:boxStrokeColor="@color/legal_blue"
             app:layout_constraintEnd_toEndOf="@+id/Endguideline"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/Startguideline"
             app:layout_constraintTop_toBottomOf="@+id/txtInLayPhone"
             app:placeholderTextColor="@color/legal_gray"
-            app:prefixTextColor="#071129"
-            app:suffixTextColor="#071129">
+            app:prefixTextColor="@color/legal_gray"
+            app:suffixTextColor="@color/legal_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInFldPass"
@@ -707,23 +676,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:layout_marginTop="20dp"
             android:hint="Referent Code (Optional)"
-            android:paddingTop="0dp"
             android:textColorHint="@color/legal_gray"
             app:boxBackgroundColor="@color/lavender"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="#061B2B"
+            app:boxStrokeColor="@color/legal_blue"
             app:layout_constraintEnd_toEndOf="@id/Endguideline"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/Startguideline"
             app:layout_constraintTop_toBottomOf="@+id/txtInLayPass"
             app:placeholderTextColor="@color/legal_gray"
-            app:prefixTextColor="#071129"
-            app:suffixTextColor="#071129">
+            app:prefixTextColor="@color/legal_gray"
+            app:suffixTextColor="@color/legal_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInFldRefCode"

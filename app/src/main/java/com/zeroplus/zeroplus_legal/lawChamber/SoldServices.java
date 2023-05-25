@@ -60,9 +60,6 @@ public class SoldServices extends AppCompatActivity {
         setSupportActionBar(toolbar);
         /*Toolbar End*/
 
-        /*SoldServiceTable=(TableLayout)findViewById(R.id.tableSoldService);
-        TableLayout();*/
-
         SoldServicesRV = (RecyclerView) findViewById(R.id.RVSold_Services);
         SoldServicesRV.setHasFixedSize(true);
         SoldServicesRV.setLayoutManager(new LinearLayoutManager(this));
@@ -79,23 +76,5 @@ public class SoldServices extends AppCompatActivity {
         adapter = new adapter_SoldServices(soldServices_list, this);
         SoldServicesRV.setAdapter(adapter);
 
-    }
-
-
-    private void tableHeaderDesign(TextView a, String Text) {
-
-        a.setText(Text);
-        a.setTypeface(null, Typeface.BOLD);
-        a.setTextColor(Color.WHITE);
-        a.setBackgroundResource(R.drawable.tableheader);
-        a.setTextSize(20);
-    }
-
-    private void tableRowDesign(TextView b, String RowText) {
-
-        b.setText(RowText);
-        b.setBackgroundResource(R.drawable.table_row);
-        b.setTextColor(Color.BLACK);
-        b.setTextSize(17);
     }
 }

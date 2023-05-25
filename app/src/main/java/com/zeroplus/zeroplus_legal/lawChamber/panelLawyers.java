@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -67,9 +68,11 @@ public class panelLawyers extends AppCompatActivity {
         for (int i=-1; i<10; i++) {
 
             TableRow tr = new TableRow(this);
-            tr.setLayoutParams(new TableLayout.LayoutParams(
-                    TableLayout.LayoutParams.MATCH_PARENT,
-                    TableLayout.LayoutParams.WRAP_CONTENT));
+            TableLayout.LayoutParams lp =
+                    new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
+                            TableLayout.LayoutParams.WRAP_CONTENT);
+            tr.setLayoutParams(lp);
+            lp.setMargins(10,10,10,10);
 
             if (flag == 1) {
 
@@ -94,7 +97,7 @@ public class panelLawyers extends AppCompatActivity {
                 final View vline = new View(this);
                 vline.setLayoutParams(new
                         TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2));
-                vline.setBackgroundColor(Color.BLUE);
+                vline.setBackgroundColor(Color.BLACK);
                 LawyerTable.addView(vline); // add line below heading
                 flag = 0;
             } else {
@@ -112,11 +115,11 @@ public class panelLawyers extends AppCompatActivity {
                 tr.addView(name);
 
                 TextView phone = new TextView(this);
-                tableRowDesign(phone, " phone ");
+                tableRowDesign(phone, " email ");
                 tr.addView(phone);
 
                 TextView email = new TextView(this);
-                tableRowDesign(email, " email ");
+                tableRowDesign(email, " phone ");
                 tr.addView(email);
 
                 TextView details = new TextView(this);
@@ -131,6 +134,10 @@ public class panelLawyers extends AppCompatActivity {
                         TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2));
                 vline1.setBackgroundColor(Color.BLACK);
                 LawyerTable.addView(vline1);  // add line below each row
+
+                View v = new View(this);
+                v.setLayoutParams(new TableRow.LayoutParams(1, TableRow.LayoutParams.MATCH_PARENT));
+                v.setBackgroundColor(Color.BLACK);
             }
         }
 
@@ -143,6 +150,8 @@ public class panelLawyers extends AppCompatActivity {
         a.setTypeface(null, Typeface.BOLD);
         a.setTextColor(Color.WHITE);
         a.setBackgroundResource(R.drawable.tableheader);
+        a.setPadding(5,2,5,2);
+        a.setGravity(Gravity.CENTER);
         a.setTextSize(20);
     }
 
@@ -151,6 +160,8 @@ public class panelLawyers extends AppCompatActivity {
         b.setText(RowText);
         b.setBackgroundResource(R.drawable.table_row);
         b.setTextColor(Color.BLACK);
+        b.setPadding(5,0,1,2);
+        b.setGravity(Gravity.CENTER);
         b.setTextSize(17);
     }
 

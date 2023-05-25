@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ import com.zeroplus.zeroplus_legal.databinding.FragmentFirstBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -136,7 +138,8 @@ public class FirstFragment extends Fragment {
     public void showToast(){
         LayoutInflater inflater = getLayoutInflater();
         View layout =inflater.inflate(R.layout.custom_toast, (ViewGroup) getActivity().findViewById(R.id.toastRoot) );
-
+        TextView Text = (TextView) layout.findViewById(R.id.textView5);
+        Text.setText("Checking Last Session..");
         Toast toast = new Toast(getContext());
         toast.setGravity(Gravity.CENTER,0,0);
         toast.setDuration(Toast.LENGTH_LONG);

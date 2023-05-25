@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.textfield.TextInputEditText;
 import com.zeroplus.zeroplus_legal.databinding.FragmentEnabelCodeBinding;
 
@@ -41,6 +44,7 @@ public class EnabelCodeFragment extends Fragment {
 
 
     Button proceedbtn;
+    ImageView animatedImage;
     private FragmentEnabelCodeBinding binding;
 
     @Override
@@ -70,6 +74,12 @@ public class EnabelCodeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        animatedImage = view.findViewById(R.id.otpImg);
+        Glide.with(this)
+                .load(R.drawable.enter_otp)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(animatedImage);
+
         TextView txtPhone=(TextView) view.findViewById(R.id.txtPhone);
         TextInputEditText TFOTP = (TextInputEditText) view.findViewById(R.id.TFOTP);
 

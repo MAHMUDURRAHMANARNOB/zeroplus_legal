@@ -25,6 +25,14 @@
     <color name="orange">#F46730</color>
 
 
+    <color name="Background_Blue">#DBF8FF</color>
+    <color name="Background_Green">#E2FFDB</color>
+    <color name="Background_Yellow">#FFFBDB</color>
+    <!--<color name="orange">#F46730</color>
+    <color name="orange">#F46730</color>
+    <color name="orange">#F46730</color>-->
+
+
 </resources>
 
 
