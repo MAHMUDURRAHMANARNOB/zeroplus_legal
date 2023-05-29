@@ -12,9 +12,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
-import com.zeroplus.zeroplus_legal.Earnings.EarningHistory;
-import com.zeroplus.zeroplus_legal.Earnings.Models.adapter_earnings;
-import com.zeroplus.zeroplus_legal.Earnings.Models.list_Earnings;
 import com.zeroplus.zeroplus_legal.R;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.adapter_appointments;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_appoinments;
@@ -22,7 +19,7 @@ import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_appoinments;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Appointments extends AppCompatActivity {
+public class Appointments extends AppCompatActivity/* implements com.zeroplus.zeroplus_legal.lawChamber.Interfaces.appoinments*/{
 
     private RecyclerView appointmentsRV;
     private RecyclerView.Adapter adapter;
@@ -64,9 +61,14 @@ public class Appointments extends AppCompatActivity {
 
             appointments_List.add(earnings);
         }
-        adapter = new adapter_appointments(appointments_List,this);
+        adapter = new adapter_appointments(/*this, */appointments_List,this);
         appointmentsRV.setAdapter(adapter);
 
 
     }
+
+    /*@Override
+    public void onItemClick(int position) {
+
+    }*/
 }

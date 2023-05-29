@@ -13,13 +13,15 @@ import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.RecyclerViewInterface;
+import com.zeroplus.zeroplus_legal.lawChamber.DetailedViews.Details_PersonalCase;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.adapter_personalCases;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_personalCases;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class personalCases extends AppCompatActivity {
+public class personalCases extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView PersonalCaseRV;
     private RecyclerView.Adapter adapter;
@@ -54,14 +56,35 @@ public class personalCases extends AppCompatActivity {
 
         personal_cases_list = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++){
-            list_personalCases personalCases = new list_personalCases(
+        for (int i = 0; i < 1; i++){
+            list_personalCases personalCases1 = new list_personalCases(
                     "আউজপাড়া মৌজা সাভার","সাভার-০১-২০২৩","সাভার-০১-২০২৩",
                     "29/03/2023","Open","Open","Plaintiff"
             );
-            personal_cases_list.add(personalCases);
+            list_personalCases personalCases2 = new list_personalCases(
+                    "hello","সাভার-০১-২০২৩","সাভার-০১-২০২৩",
+                    "29/03/2023","Open","Judgement","Opponent"
+            );
+            personal_cases_list.add(personalCases1);
+            personal_cases_list.add(personalCases2);
         }
-        adapter = new adapter_personalCases(personal_cases_list,this);
+        adapter = new adapter_personalCases(this, personal_cases_list,this);
         PersonalCaseRV.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
+        Intent intent = new Intent(this, Details_PersonalCase.class);
+
+        intent.putExtra("FileName",personal_cases_list.get(position).getFileName());
+        intent.putExtra("FileNo",personal_cases_list.get(position).getFileNo());
+        intent.putExtra("CaseNo",personal_cases_list.get(position).getCaseNo());
+        intent.putExtra("CaseStatus",personal_cases_list.get(position).getCaseStatus());
+        intent.putExtra("Judgement",personal_cases_list.get(position).getJudgementStatus());
+        intent.putExtra("FilingDate",personal_cases_list.get(position).getFilingDate());
+        intent.putExtra("ClientType",personal_cases_list.get(position).getPosition());
+        startActivity(intent);
+
     }
 }

@@ -10,15 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.RecyclerViewInterface;
 
 import java.util.List;
 
 public class adapter_personalCases extends RecyclerView.Adapter<adapter_personalCases.ViewHolder> {
 
+    private final RecyclerViewInterface recyclerViewInterface;
+
     List<list_personalCases> personalCasesItems;
     private Context context;
 
-    public adapter_personalCases(List<list_personalCases> personalCasesItems, Context context) {
+    public adapter_personalCases(RecyclerViewInterface recyclerViewInterface, List<list_personalCases> personalCasesItems, Context context) {
+        this.recyclerViewInterface = recyclerViewInterface;
         this.personalCasesItems = personalCasesItems;
         this.context = context;
     }
@@ -28,7 +32,7 @@ public class adapter_personalCases extends RecyclerView.Adapter<adapter_personal
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_personal_cases, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,recyclerViewInterface);
     }
 
     @Override
@@ -52,7 +56,7 @@ public class adapter_personalCases extends RecyclerView.Adapter<adapter_personal
 
         public TextView _fileName,_caseNo,_fileNo,_fileingDate, _caseStatus,_judgementStatus, _position;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             _fileName = (TextView) itemView.findViewById(R.id._fileName);
             _caseNo = (TextView) itemView.findViewById(R.id._caseNo);
@@ -61,6 +65,18 @@ public class adapter_personalCases extends RecyclerView.Adapter<adapter_personal
             _caseStatus = (TextView) itemView.findViewById(R.id._caseStatus);
             _judgementStatus = (TextView) itemView.findViewById(R.id._judgementStatus);
             _position = (TextView) itemView.findViewById(R.id._position);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface!=null){
+                        int pos = getBindingAdapterPosition();
+                        if(pos!=RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 

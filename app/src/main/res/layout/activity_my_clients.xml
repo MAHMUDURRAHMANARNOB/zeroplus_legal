@@ -28,36 +28,27 @@ tools:context=".lawChamber.MyClients">
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtClients"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Clients"
-        android:textSize="20sp"
-        android:textColor="@color/blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tool" />
-
     <Button
         android:id="@+id/btnClientSetup"
         android:layout_width="210dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/blue"
         android:padding="5dp"
         android:text="New Client Setup"
-        android:textColor="@color/white"
-        app:cornerRadius="20dp"
+        android:textColor="@color/legal_blue"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
         app:icon="@drawable/baseline_person_add"
         app:iconGravity="textEnd"
         app:iconPadding="8dp"
         app:iconSize="28dp"
-        app:iconTint="@color/white"
+        app:iconTint="@color/legal_blue"
         app:iconTintMode="src_in"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtClients" />
+        app:layout_constraintTop_toBottomOf="@+id/tool"
+        app:strokeColor="@color/legal_blue"
+        app:strokeWidth="1dp" />
 
 
     <HorizontalScrollView

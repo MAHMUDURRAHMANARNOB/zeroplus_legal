@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:layout_gravity="center|end">
@@ -31,7 +31,7 @@
                 android:alpha="0.5"
                 android:src="@drawable/personal_case" />
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,31 +41,32 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
-                <TextView
-                    android:id="@+id/txtFileName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="File Name: "
-                    android:textColor="@color/blue"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/clientImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/man" />
 
                 <TextView
-                    android:id="@+id/_fileName"
+                    android:id="@+id/_cientName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Mashrur-Nusrat_Kanon"
+                    android:layout_marginStart="5dp"
+                    android:text="Client Name"
                     android:textColor="@color/blue"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/txtFileName"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clientImage"
                     app:layout_constraintTop_toTopOf="parent" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -75,26 +76,26 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtCaseNo"
+                    android:id="@+id/txtService_Name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Case No: "
-                    android:textColor="@color/blue"
+                    android:text="Service Name: "
+                    android:textColor="@color/legal_blue"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/_caseNo"
+                    android:id="@+id/_serviceName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="mnk-01-2023-x"
-                    android:textColor="@color/blue"
+                    android:text="Service Name"
+                    android:textColor="@color/legal_blue"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/txtCaseNo"
+                    app:layout_constraintStart_toEndOf="@+id/txtService_Name"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -103,25 +104,25 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtFileNo"
+                    android:id="@+id/txtServicePrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="File No: "
-                    android:textColor="@color/blue"
+                    android:text="Service Price: "
+                    android:textColor="@color/darkGreen"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/_fileNo"
+                    android:id="@+id/_servicePrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="mnk-01-2023"
-                    android:textColor="@color/blue"
+                    android:text="tktktk"
+                    android:textColor="@color/darkGreen"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtFileNo"
+                    app:layout_constraintStart_toEndOf="@+id/txtServicePrice"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -130,25 +131,25 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtFiling_Date"
+                    android:id="@+id/txtStartingDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Filing Date: "
-                    android:textColor="@color/orange"
+                    android:text="Staring Date: "
+                    android:textColor="@color/legal"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/_fileingDate"
+                    android:id="@+id/_startingDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="29/03/2023"
-                    android:textColor="@color/orange"
+                    android:text="--/--/----"
+                    android:textColor="@color/legal"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtFiling_Date"
+                    app:layout_constraintStart_toEndOf="@+id/txtStartingDate"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -158,102 +159,53 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:weightSum="3">
+                android:weightSum="2">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:orientation="vertical"
                     android:backgroundTint="@color/Background_Green"
                     android:background="@drawable/option_background"
-                    android:weightSum="2">
+                    android:weightSum="1">
 
                     <TextView
-                        android:id="@+id/CaseStatus"
+                        android:id="@+id/_package"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Case Status"
-                        android:textColor="@color/darkGreen"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/_caseStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Open"
+                        android:padding="5dp"
+                        android:text="Package Name"
                         android:gravity="center"
                         android:textColor="@color/darkGreen"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_margin="2dp"
-                    android:backgroundTint="@color/Background_Blue"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/Background_Red"
                     android:background="@drawable/option_background"
                     android:orientation="vertical"
-                    android:weightSum="2">
+                    android:weightSum="1">
 
                     <TextView
-                        android:id="@+id/JudgementStatus"
+                        android:id="@+id/_caseType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Judgement Status"
-                        android:textColor="@color/legal_blue"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/_judgementStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Done"
-                        android:textColor="@color/legal_blue"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_margin="2dp"
-                    android:backgroundTint="@color/Background_Yellow"
-                    android:background="@drawable/option_background"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-
-                    <TextView
-                        android:id="@+id/Position"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Position"
-                        android:textColor="@color/legal"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/_position"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Plaintiff"
-                        android:textColor="@color/legal"
-                        android:textSize="12sp"
+                        android:padding="5dp"
+                        android:text="caseType"
+                        android:textColor="@color/red"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 

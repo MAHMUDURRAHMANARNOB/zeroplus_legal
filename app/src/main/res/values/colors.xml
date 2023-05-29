@@ -23,11 +23,13 @@
     <color name="green">#1FB141</color>
     <color name="darkGreen">#257533</color>
     <color name="orange">#F46730</color>
+    <color name="red">#CA1616</color>
 
 
     <color name="Background_Blue">#DBF8FF</color>
     <color name="Background_Green">#E2FFDB</color>
     <color name="Background_Yellow">#FFFBDB</color>
+    <color name="Background_Red">#FFACAC</color>
     <!--<color name="orange">#F46730</color>
     <color name="orange">#F46730</color>
     <color name="orange">#F46730</color>-->

@@ -33,7 +33,7 @@
             android:id="@+id/txtClients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lawyer List"
+            android:text="Panel Lawyers"
             android:layout_margin="5dp"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -48,19 +48,21 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/legal_blue"
+            android:backgroundTint="@color/white"
             android:padding="5dp"
             android:text="Lawyer Setup"
-            android:textColor="@color/white"
+            android:textColor="@color/legal_blue"
             app:cornerRadius="10dp"
             app:icon="@drawable/baseline_person_add"
             app:iconGravity="textEnd"
             app:iconPadding="8dp"
             app:iconSize="28dp"
-            app:iconTint="@color/white"
+            app:iconTint="@color/legal_blue"
             app:iconTintMode="src_in"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtClients" />
+            app:layout_constraintTop_toBottomOf="@+id/txtClients"
+            app:strokeColor="@color/legal_blue"
+            app:strokeWidth="1dp" />
 
 
         <HorizontalScrollView
