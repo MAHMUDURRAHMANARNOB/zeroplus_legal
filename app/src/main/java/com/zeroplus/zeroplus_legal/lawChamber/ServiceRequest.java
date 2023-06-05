@@ -15,13 +15,16 @@ import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.RecyclerViewInterface;
+import com.zeroplus.zeroplus_legal.lawChamber.DetailedViews.Details_PersonalCase;
+import com.zeroplus.zeroplus_legal.lawChamber.DetailedViews.Details_ServiceReq;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.adapter_serviceRequest;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_ServiceRequests;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceRequest extends AppCompatActivity {
+public class ServiceRequest extends AppCompatActivity implements RecyclerViewInterface {
     private RecyclerView ServiceRequestsRV;
     private RecyclerView.Adapter adapter;
     private List<list_ServiceRequests> serviceRequests_list;
@@ -56,16 +59,36 @@ public class ServiceRequest extends AppCompatActivity {
         serviceRequests_list = new ArrayList<>();
         Bitmap clientImage = BitmapFactory.decodeResource(getResources(), R.drawable.man);
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 1; i++){
             list_ServiceRequests serviceRequests = new list_ServiceRequests(
                     "Sayduzzaman Shamim","Commercial Lobbing","5500",
                     "23/5/2023","Premium","Private",clientImage
 
             );
+            list_ServiceRequests serviceRequests1 = new list_ServiceRequests(
+                    "RI Tarofder","Eye/ophthalmology","5000",
+                    "9/5/2023","Premium","Private",clientImage
+
+            );
             serviceRequests_list.add(serviceRequests);
+            serviceRequests_list.add(serviceRequests1);
         }
-        adapter = new adapter_serviceRequest(serviceRequests_list,this);
+        adapter = new adapter_serviceRequest(this, serviceRequests_list,this);
         ServiceRequestsRV.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(this, Details_ServiceReq.class);
+
+        intent.putExtra("ClientName",serviceRequests_list.get(position).getClientName());
+        intent.putExtra("ServiceName",serviceRequests_list.get(position).getServiceName());
+        intent.putExtra("StartingDate",serviceRequests_list.get(position).getStartingDate());
+        intent.putExtra("ServiceType",serviceRequests_list.get(position).getCaseType());
+        intent.putExtra("ServicePrice",serviceRequests_list.get(position).getServicePrice());
+        intent.putExtra("ServiceCategory",serviceRequests_list.get(position).getPackageType());
+        /*intent.putExtra("ClientImage",serviceRequests_list.get(position).getClientImage());*/
+        startActivity(intent);
     }
 }

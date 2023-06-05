@@ -72,7 +72,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:text="My Services"
+                    android:text="Offered Services"
                     android:textColor="@color/legal"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -91,7 +91,7 @@
             <RelativeLayout
                 android:id="@+id/LLmyclients"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
@@ -113,8 +113,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:src="@drawable/clients_anim"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/clients_anim" />
                 <!--android:src="@drawable/clients" -->
 
                 <TextView
@@ -129,7 +129,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:text="My Clients"
+                    android:text="Clients"
                     android:textColor="@color/legal"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -139,7 +139,7 @@
             <RelativeLayout
                 android:id="@+id/LLAppointments"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:clickable="true"
@@ -161,8 +161,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:src="@drawable/appointment"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/appointment" />
 
                 <TextView
                     android:id="@+id/txtAppointments"
@@ -179,7 +179,7 @@
                     android:gravity="center"
                     android:text="Appointment"
                     android:textColor="@color/legal"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </RelativeLayout>
 

@@ -168,8 +168,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:orientation="vertical"
-                    android:backgroundTint="@color/Background_Green"
-                    android:background="@drawable/option_background"
+                    android:backgroundTint="@color/green"
+                    android:background="@drawable/pi_background"
                     android:weightSum="1">
 
                     <TextView
@@ -192,7 +192,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:backgroundTint="@color/Background_Red"
-                    android:background="@drawable/option_background"
+                    android:background="@drawable/pi_background"
                     android:orientation="vertical"
                     android:weightSum="1">
 

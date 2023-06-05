@@ -10,15 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.RecyclerViewInterface;
 
 import java.util.List;
 
 public class adapter_zpCases extends RecyclerView.Adapter<adapter_zpCases.ViewHolder> {
 
+    private final RecyclerViewInterface recyclerViewInterface;
     List<list_zpCases> zpcasesItems;
     private Context context;
 
-    public adapter_zpCases(List<list_zpCases> zpcasesItems, Context context) {
+    public adapter_zpCases(RecyclerViewInterface recyclerViewInterface, List<list_zpCases> zpcasesItems, Context context) {
+        this.recyclerViewInterface = recyclerViewInterface;
         this.zpcasesItems = zpcasesItems;
         this.context = context;
     }
@@ -28,7 +31,7 @@ public class adapter_zpCases extends RecyclerView.Adapter<adapter_zpCases.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_zpcases,parent,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,recyclerViewInterface);
     }
 
     @Override
@@ -52,7 +55,7 @@ public class adapter_zpCases extends RecyclerView.Adapter<adapter_zpCases.ViewHo
 
         public TextView _fileName,_caseNo,_fileNo,_fileingDate, _caseStatus,_judgementStatus, _position;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             _fileName = (TextView) itemView.findViewById(R.id._fileName);
             _caseNo = (TextView) itemView.findViewById(R.id._caseNo);
@@ -61,6 +64,18 @@ public class adapter_zpCases extends RecyclerView.Adapter<adapter_zpCases.ViewHo
             _caseStatus = (TextView) itemView.findViewById(R.id._caseStatus);
             _judgementStatus = (TextView) itemView.findViewById(R.id._judgementStatus);
             _position = (TextView) itemView.findViewById(R.id._position);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface!=null){
+                        int pos = getBindingAdapterPosition();
+                        if(pos!=RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

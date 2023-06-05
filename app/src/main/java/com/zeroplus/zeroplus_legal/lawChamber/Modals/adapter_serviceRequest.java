@@ -11,15 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zeroplus.zeroplus_legal.R;
+import com.zeroplus.zeroplus_legal.RecyclerViewInterface;
 
 import java.util.List;
 
 public class adapter_serviceRequest extends RecyclerView.Adapter<adapter_serviceRequest.ViewHolder> {
 
+    private final RecyclerViewInterface recyclerViewInterface;
     List <list_ServiceRequests> serviceRequestsItems;
     private Context context;
 
-    public adapter_serviceRequest(List<list_ServiceRequests> serviceRequestsItems, Context context) {
+    public adapter_serviceRequest(RecyclerViewInterface recyclerViewInterface, List<list_ServiceRequests> serviceRequestsItems, Context context) {
+        this.recyclerViewInterface = recyclerViewInterface;
         this.serviceRequestsItems = serviceRequestsItems;
         this.context = context;
     }
@@ -29,7 +32,7 @@ public class adapter_serviceRequest extends RecyclerView.Adapter<adapter_service
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_service_requests, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,recyclerViewInterface);
     }
 
     @Override
@@ -53,7 +56,7 @@ public class adapter_serviceRequest extends RecyclerView.Adapter<adapter_service
         public TextView _cientName,_serviceName,_servicePrice,_startingDate, _package,_caseType;
         public ImageView clientImage;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             _cientName = (TextView) itemView.findViewById(R.id._cientName);
             _serviceName = (TextView) itemView.findViewById(R.id._serviceName);
@@ -62,6 +65,18 @@ public class adapter_serviceRequest extends RecyclerView.Adapter<adapter_service
             _package = (TextView) itemView.findViewById(R.id._package);
             _caseType = (TextView) itemView.findViewById(R.id._caseType);
             clientImage = (ImageView) itemView.findViewById(R.id.clientImage);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface!=null){
+                        int pos = getBindingAdapterPosition();
+                        if(pos!=RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

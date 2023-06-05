@@ -10,7 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
 
         <!--Super-->
@@ -18,14 +19,15 @@
             android:id="@+id/cardSup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:cardMaxElevation="7dp"
-            app:cardCornerRadius="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,6 +45,7 @@
                     android:textColor="@color/blue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
@@ -65,9 +68,9 @@
                     android:id="@+id/button4"
                     android:layout_width="150dp"
                     android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="end"
                     android:text="Buy This Pack"
-                    app:cornerRadius="25dp" />
+                    app:cornerRadius="10dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -76,14 +79,15 @@
             android:id="@+id/cardSt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:cardMaxElevation="7dp"
-            app:cardCornerRadius="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardSup" >
+            app:layout_constraintTop_toBottomOf="@id/cardSup">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,6 +105,7 @@
                     android:textColor="@color/blue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
@@ -123,9 +128,9 @@
                     android:id="@+id/button3"
                     android:layout_width="150dp"
                     android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="end"
                     android:text="Buy This Pack"
-                    app:cornerRadius="25dp" />
+                    app:cornerRadius="10dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -134,14 +139,15 @@
             android:id="@+id/cardSp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:cardMaxElevation="7dp"
-            app:cardCornerRadius="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardSt" >
+            app:layout_constraintTop_toBottomOf="@id/cardSt">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,6 +165,7 @@
                     android:textColor="@color/blue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
@@ -181,9 +188,9 @@
                     android:id="@+id/button2"
                     android:layout_width="150dp"
                     android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="end"
                     android:text="Buy This Pack"
-                    app:cornerRadius="25dp" />
+                    app:cornerRadius="10dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -192,14 +199,15 @@
             android:id="@+id/cardGe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:cardMaxElevation="7dp"
-            app:cardCornerRadius="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardSp" >
+            app:layout_constraintTop_toBottomOf="@id/cardSp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -217,6 +225,7 @@
                     android:textColor="@color/blue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
@@ -239,9 +248,9 @@
                     android:id="@+id/button5"
                     android:layout_width="150dp"
                     android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="end"
                     android:text="Buy This Pack"
-                    app:cornerRadius="25dp" />
+                    app:cornerRadius="10dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

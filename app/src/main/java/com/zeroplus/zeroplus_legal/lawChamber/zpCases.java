@@ -13,15 +13,15 @@ import android.widget.TextView;
 
 import com.zeroplus.zeroplus_legal.DashboardActivity;
 import com.zeroplus.zeroplus_legal.R;
-import com.zeroplus.zeroplus_legal.lawChamber.Modals.adapter_SoldServices;
+import com.zeroplus.zeroplus_legal.RecyclerViewInterface;
+import com.zeroplus.zeroplus_legal.lawChamber.DetailedViews.Details_ZeroplusCase;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.adapter_zpCases;
-import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_SoldServices;
 import com.zeroplus.zeroplus_legal.lawChamber.Modals.list_zpCases;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class zpCases extends AppCompatActivity {
+public class zpCases extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView ZPCASESRV;
     private RecyclerView.Adapter adapter;
@@ -57,15 +57,35 @@ public class zpCases extends AppCompatActivity {
 
         zpcases_list = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
-            list_zpCases zpcases = new list_zpCases(
+        for (int i = 0; i < 1; i++) {
+            list_zpCases zpcases1 = new list_zpCases(
                     "Mostafijur Rahman Jamalpur Land File", "mosta-01-2023",
-                    "mosta-01-2023", "29/03/2023", "Judgement", "Close", "Plaintiff");
+                    "mosta-01-2023", "29/03/2023", "Open",
+                    "Close", "Plaintiff");
+            list_zpCases zpcases2 = new list_zpCases(
+                    "Raju Khilkhet", "raju-2023",
+                    "raju-2023", "29/03/2023", "Judgement",
+                    "Open", "Opponent");
 
-            zpcases_list.add(zpcases);
+            zpcases_list.add(zpcases1);
+            zpcases_list.add(zpcases2);
         }
-        adapter = new adapter_zpCases(zpcases_list, this);
+        adapter = new adapter_zpCases(this, zpcases_list, this);
         ZPCASESRV.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(this, Details_ZeroplusCase.class);
+
+        intent.putExtra("FileName",zpcases_list.get(position).getFileName());
+        intent.putExtra("FileNo",zpcases_list.get(position).getFileNo());
+        intent.putExtra("CaseNo",zpcases_list.get(position).getCaseNo());
+        intent.putExtra("CaseStatus",zpcases_list.get(position).getCaseStatus());
+        intent.putExtra("Judgement",zpcases_list.get(position).getJudgementStatus());
+        intent.putExtra("FilingDate",zpcases_list.get(position).getFilingDate());
+        intent.putExtra("ClientType",zpcases_list.get(position).getPosition());
+        startActivity(intent);
     }
 }
