@@ -52,7 +52,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-
             android:background="@color/white"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
@@ -86,9 +85,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:itemRippleColor="@color/white"
-                android:hapticFeedbackEnabled="true"
                 app:backgroundTint="#ffffff"
-                app:elevation="3dp"
+                app:compatShadowEnabled="true"
+                app:elevation="5dp"
                 app:itemIconTint="@drawable/icon_color_multi"
                 app:itemTextColor="@drawable/icon_color_multi"
                 app:menu="@menu/bottom_nav_menu" />

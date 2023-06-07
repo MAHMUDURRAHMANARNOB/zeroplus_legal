@@ -11,12 +11,12 @@
         android:id="@+id/itemhome"
         android:enabled="true"
         android:icon="@drawable/home"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/itemEarnings"
         android:enabled="true"
         android:icon="@drawable/taka"
-        android:title="Earnings" />
+        android:title="@string/earnings" />
     <!--<item
         android:id="@+id/itemReferrals"
         android:enabled="true"
@@ -27,7 +27,7 @@
         android:id="@+id/itemProfile"
         android:enabled="true"
         android:icon="@drawable/profile"
-        android:title="Profile" />
+        android:title="@string/profile" />
 
     <!--<item
         android:id="@+id/itemlogout"
