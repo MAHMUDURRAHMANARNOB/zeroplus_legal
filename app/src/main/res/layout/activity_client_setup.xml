@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
+            android:elevation="5dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -30,7 +31,7 @@
         </LinearLayout>
 
         <!--General Info Update-->
-        <androidx.cardview.widget.CardView
+        <!--<androidx.cardview.widget.CardView
             android:id="@+id/GIU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +41,7 @@
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tool">
+            app:layout_constraintTop_toBottomOf="@id/tool">-->
 
             <LinearLayout
                 android:id="@+id/giu"
@@ -48,11 +49,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/white"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/tool">
 
 
                 <TextView
@@ -71,6 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:layout_margin="10dp"
                     android:animateLayoutChanges="true">
 
                     <!--fullName-->
@@ -82,30 +81,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Full Name"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_client_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -119,30 +117,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Email"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_ClientEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -156,30 +153,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Mobile No"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientMobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -193,30 +189,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Gender"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientGender"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -230,30 +225,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Country"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientCountry"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -267,30 +261,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Present Address"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientpresentAdd"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -315,30 +308,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Permanent Address"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientpermanentAdd"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -352,30 +344,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Note"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_note"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -400,30 +391,29 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Client's User Name"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientUserName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -437,36 +427,32 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:hint="Password"
-                        android:paddingTop="0dp"
-                        android:textColorHint="#0B092E"
+                        android:textColorHint="@color/legal_blue"
                         app:boxBackgroundColor="@color/lavender"
                         app:boxCornerRadiusBottomEnd="10dp"
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeColor="#0B092E"
+                        app:boxStrokeColor="@color/legal_blue"
                         app:helperTextTextColor="@color/design_default_color_error"
-                        app:hintTextColor="#0B092E"
+                        app:hintTextColor="@color/legal_blue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.609"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:placeholderTextColor="#0B092E"
-                        app:prefixTextColor="#0B092E"
-                        app:suffixTextColor="#0B092E">
+                        app:placeholderTextColor="@color/legal_blue"
+                        app:prefixTextColor="@color/legal_blue"
+                        app:suffixTextColor="@color/legal_blue">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/_clientpassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/convergence"
-                            android:textColor="#041F37"
+                            android:textColor="@color/legal_blue"
                             android:textSize="14sp"
                             tools:ignore="TextContrastCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
 
                     <Button
@@ -493,7 +479,7 @@
 
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        <!--</androidx.cardview.widget.CardView>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
