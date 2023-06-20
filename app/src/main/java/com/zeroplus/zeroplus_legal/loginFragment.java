@@ -33,6 +33,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.textfield.TextInputEditText;
+import com.zeroplus.zeroplus_legal.ResponseModels.loginResponseModel;
 import com.zeroplus.zeroplus_legal.databinding.FragmentLoginBinding;
 
 import org.json.JSONArray;
@@ -42,11 +43,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+
 
 public class loginFragment extends Fragment {
 
     //Data variables
-    TextInputEditText txtInFldEmail,txtInFldPass;
+    TextInputEditText txtInFldEmail, txtInFldPass;
     TextView forgotpasstxt, txtsignup;
     Button fabCropImage;
     ImageView animatedImage;
@@ -54,31 +58,29 @@ public class loginFragment extends Fragment {
 
 
     //Validations
-    public boolean LoginValidate(){
+    public boolean LoginValidate() {
         boolean validResult;
-        if(!validatePass() || !validateEmail()){
-            Log.d("Registration Validate","InValid");
+        if (!validatePass() || !validateEmail()) {
+            Log.d("Registration Validate", "InValid");
             return true;
-        }
-        else{
-            Log.d("Registration Validate","Valid");
+        } else {
+            Log.d("Registration Validate", "Valid");
             return false;
         }
     }
 
-     private boolean validateEmail(){
+    private boolean validateEmail() {
 
-        String Email=txtInFldEmail.getText().toString().trim();
+        String Email = txtInFldEmail.getText().toString().trim();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String mobilePattern = "^(?:\\+88|88)?(01[3-9]\\d{8})$";
-        Log.d("EmailInput Text",Email);
+        Log.d("EmailInput Text", Email);
 
-        if (Email.isEmpty()){
+        if (Email.isEmpty()) {
             txtInFldEmail.setError("Email/PhoneField cannot be Empty");
-            Log.d("email","empty");
+            Log.d("email", "empty");
             return false;
-        }
-        else if (Email.matches(emailPattern)||Email.matches(mobilePattern)) {
+        } else if (Email.matches(emailPattern) || Email.matches(mobilePattern)) {
             return true;
         }
         /*else if (!Email.matches(mobilePattern)){
@@ -89,28 +91,26 @@ public class loginFragment extends Fragment {
         else {
             Log.d("Email/Phone", " ok");
             txtInFldEmail.setError("Invalid Email/Phone");
-            Log.d("email/phone","Invalid");
+            Log.d("email/phone", "Invalid");
             return false;
         }
 
     }
 
-    private boolean validatePass(){
-        String password=txtInFldPass.getText().toString().trim();
-        Log.d("Password Inputted Text",password);
+    private boolean validatePass() {
+        String password = txtInFldPass.getText().toString().trim();
+        Log.d("Password Inputted Text", password);
 
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             txtInFldPass.setError("Password Field cannot be empty");
-            Log.d("password","Password empty");
+            Log.d("password", "Password empty");
             return false;
-        }
-        else if(password.length()<6){
+        } else if (password.length() < 6) {
             txtInFldPass.setError("Minimum 6 characters required");
-            Log.d("password","6 error");
+            Log.d("password", "6 error");
             return false;
-        }
-        else{
-            Log.d("password","password ok");
+        } else {
+            Log.d("password", "password ok");
             return true;
         }
     }
@@ -118,13 +118,14 @@ public class loginFragment extends Fragment {
     //Views and fragemnts functionability
 
     private FragmentLoginBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        txtInFldPass=(TextInputEditText) view.findViewById(R.id.txtInFldPass);
-        txtInFldEmail=(TextInputEditText) view.findViewById(R.id.userid_phone_email);
+        txtInFldPass = (TextInputEditText) view.findViewById(R.id.txtInFldPass);
+        txtInFldEmail = (TextInputEditText) view.findViewById(R.id.userid_phone_email);
         remember = (CheckBox) view.findViewById(R.id.checkBoxRemember);
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -133,32 +134,23 @@ public class loginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        txtInFldPass=(TextInputEditText) view.findViewById(R.id.txtInFldPass);
-        txtInFldEmail=(TextInputEditText) view.findViewById(R.id.userid_phone_email);
-        forgotpasstxt=(TextView) view.findViewById(R.id.forgotpasstxt);
+        txtInFldPass = (TextInputEditText) view.findViewById(R.id.txtInFldPass);
+        txtInFldEmail = (TextInputEditText) view.findViewById(R.id.userid_phone_email);
+        forgotpasstxt = (TextView) view.findViewById(R.id.forgotpasstxt);
         remember = (CheckBox) view.findViewById(R.id.checkBoxRemember);
 
-        txtsignup=(TextView) view.findViewById(R.id.txtsignup);
-
-        /*binding.logbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(RegistrationFragment.this)
-                        .navigate(R.id.action_registrationFragment_to_loginFragment2);
-            }
-        });*/
+        txtsignup = (TextView) view.findViewById(R.id.txtsignup);
 
         binding.txtsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 NavHostFragment.findNavController(loginFragment.this)
                         .navigate(R.id.action_loginFragment_to_registrationFragment);
             }
         });
 
         SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
-        if(sessionManager.CheckRememberMe()){
+        if (sessionManager.CheckRememberMe()) {
             HashMap<String, String> rememberMeDetails = sessionManager.getRememberMeDetailsFromSession();
             txtInFldEmail.setText(rememberMeDetails.get(SessionManager.KEY_SESSIONEMAIL));
             txtInFldPass.setText(rememberMeDetails.get(SessionManager.KEY_SESSIONPASSWORD));
@@ -183,61 +175,61 @@ public class loginFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if(LoginValidate()){
+                if (LoginValidate()) {
                     Toast.makeText(getActivity(), "Error In Login information", Toast.LENGTH_LONG).show();
-                    Log.d("Entered into Reg ","Error Login Validate");
-                }
-                else{
-                    Log.d("Entered into Reg ","Success Login Validate");
-                    processdata();
+                    Log.d("Entered into Reg ", "Error Login Validate");
+                } else {
+                    Log.d("Successful", "Success Login Validate");
+                    //processdata();
+                    loginData();
                     /*NavHostFragment.findNavController(loginFragment.this)
                             .navigate(R.id.action_loginFragment_to_zeroplusWebviewFragment);*/
                 }
             }
         });
-
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
+                if (compoundButton.isChecked()) {
                     SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "true");
                     editor.apply();
-                    Toast.makeText(getActivity(), "Checked",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
 
-                }
-                else if(!compoundButton.isChecked()){
+                } else if (!compoundButton.isChecked()) {
                     SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "flase");
                     editor.apply();
-                    Toast.makeText(getActivity(), "Un-Checked!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Un-Checked!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
     }
+
     @Override
     public void onStop() {
         super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
     }
 
-    private void processdata(){
+    /*private void processdata() {
 
         //API
 
-        String Email=txtInFldEmail.getText().toString().trim();
-        String Password=txtInFldPass.getText().toString().trim();
+        String Email = txtInFldEmail.getText().toString().trim();
+        String Password = txtInFldPass.getText().toString().trim();
 
-        /*create a Session*/
+        *//*create a Session*//*
         SessionManager sessionManager1 = new SessionManager(getContext(), SessionManager.SESSION_USERSESSION);
-        sessionManager1.createLoginSession(Email,Password);
+        sessionManager1.createLoginSession(Email, Password);
 
 
         //parameter sending to the API
@@ -245,15 +237,15 @@ public class loginFragment extends Fragment {
         try {
             parameter.put("email", Email);
             parameter.put("password", Password);
-            Log.d("username in", Email+"\t"+Password);
+            Log.d("username in", Email + "\t" + Password);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        if(remember.isChecked()){
-            /*If Checked create a Session*/
+        if (remember.isChecked()) {
+            *//*If Checked create a Session*//*
             SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
-            sessionManager.createRememberSession(Email,Password);
+            sessionManager.createRememberSession(Email, Password);
         }
 
         // Calling Application class (see application tag in AndroidManifest.xml)
@@ -261,22 +253,22 @@ public class loginFragment extends Fragment {
         MyApplication globalVariable = (MyApplication) getActivity().getApplication();
 
 
-         /*String ApiUrl = "http://128.199.193.12/zeroplus/public/api/auth/login";*/
-        String ApiUrl = ((MyApplication) getActivity().getApplication()).getBaseURL()+"auth/login";
-        /*String ApiUrl = ((MyApplication) getActivity().getApplication()).getBaseURL()+"auth/login";*/
+        *//*String ApiUrl = "http://128.199.193.12/zeroplus/public/api/auth/login";*//*
+        String ApiUrl = ((MyApplication) getActivity().getApplication()).getBaseURL() + "auth/login";
+        *//*String ApiUrl = ((MyApplication) getActivity().getApplication()).getBaseURL()+"auth/login";*//*
         //Response From API
-        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, ApiUrl ,parameter,
-                new Response.Listener<JSONObject>(){
+        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, ApiUrl, parameter,
+                new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
 
-                            /*parse from response*/
+                            *//*parse from response*//*
                             String result = response.getString("result");
-                            Log.d("inside login response",result);
-                            /*String id = response.getString("id");*/
+                            Log.d("inside login response", result);
+                            *//*String id = response.getString("id");*//*
                             globalVariable.setId(response.getString("id"));
-                            Log.d("inside login response",response.toString());
+                            Log.d("inside login response", response.toString());
 //                            Log.d("id",result.toString());
 
                             globalVariable.setlName(response.getString("name"));
@@ -291,9 +283,9 @@ public class loginFragment extends Fragment {
                             Thread thread = new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    /*sleep(3000);*/
+                                    *//*sleep(3000);*//*
 
-                                    Intent i = new Intent(getContext(),DashboardActivity.class);
+                                    Intent i = new Intent(getContext(), DashboardActivity.class);
                                     startActivity(i);
                                     getActivity().finish();
 
@@ -309,10 +301,10 @@ public class loginFragment extends Fragment {
                             String erroruser = "Invalid UserName or Password";
                             Toast toast = Toast.makeText(
                                     getActivity().getApplicationContext(),
-                                    Html.fromHtml("<h3><font color='#ff0000'>"  +erroruser+  "</font></h3>"),
+                                    Html.fromHtml("<h3><font color='#ff0000'>" + erroruser + "</font></h3>"),
                                     Toast.LENGTH_LONG);
                             // Set the Toast display position layout center
-                            toast.setGravity(Gravity.CENTER,0,50);
+                            toast.setGravity(Gravity.CENTER, 0, 50);
                             // Finally, show the toast
                             int lengthShort = Toast.LENGTH_SHORT;
                             toast.setDuration(lengthShort);
@@ -329,7 +321,7 @@ public class loginFragment extends Fragment {
                         String errormsg = "Check your connection and try again";
                         Toast toast = Toast.makeText(
                                 getActivity().getApplicationContext(),
-                                Html.fromHtml("<h3><font color='#ff0000'>"  +errormsg+  "</font></h3>"),
+                                Html.fromHtml("<h3><font color='#ff0000'>" + errormsg + "</font></h3>"),
                                 Toast.LENGTH_LONG);
 
                         // Set the Toast display position layout center
@@ -340,10 +332,9 @@ public class loginFragment extends Fragment {
                         toast.show();
                         //Toast.makeText(getActivity(), "Check your connection and provide valid user name and password ", Toast.LENGTH_LONG).show();
                     }
-                })
-        {
+                }) {
             @Override
-            public Map<String, String> getParams()throws AuthFailureError {
+            public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("Accept", "application/json");
                 params.put("Content-Type", "application/json; charset=utf-8");
@@ -361,8 +352,63 @@ public class loginFragment extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
-    }
+    }*/
 
+    public void loginData() {
+        MyApplication globalVariable = (MyApplication) getActivity().getApplication();
+
+        String Email = txtInFldEmail.getText().toString().trim();
+        String Password = txtInFldPass.getText().toString().trim();
+
+        /*create a Session*/
+        SessionManager sessionManager1 = new SessionManager(getContext(), SessionManager.SESSION_USERSESSION);
+        sessionManager1.createLoginSession(Email, Password);
+
+        if (remember.isChecked()) {
+            /*If Checked create a Session*/
+            SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
+            sessionManager.createRememberSession(Email, Password);
+        }
+
+        /*CALLING THE LOGIN_RESPONSE_MODEL TO GET THE RESPONSE*/
+        Call<loginResponseModel> call = apiController.getInstance()
+                .getApi().getLoginInfo(Email,Password);
+
+        call.enqueue(new Callback<loginResponseModel>() {
+            @Override
+            public void onResponse(Call<loginResponseModel> call, retrofit2.Response<loginResponseModel> response) {
+                loginResponseModel lrm = response.body();
+                /*lrm.getEmail();*/
+                Log.d("response", lrm.getName());
+
+                globalVariable.setlName(lrm.getName());
+                globalVariable.setlEmail(lrm.getEmail());
+                globalVariable.setlPhone(lrm.getPhone());
+                globalVariable.setlUname(lrm.getUsername());
+                globalVariable.setlRefer(lrm.getRefer());
+
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        /*sleep(3000);*/
+                        Intent i = new Intent(getContext(), DashboardActivity.class);
+                        startActivity(i);
+                        getActivity().finish();
+                    }
+                });
+                thread.start();
+                Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<loginResponseModel> call, Throwable t) {
+                String error = t.getMessage();
+                Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
 
 
 }

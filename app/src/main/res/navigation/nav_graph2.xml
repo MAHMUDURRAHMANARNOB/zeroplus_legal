@@ -20,9 +20,7 @@
         android:name="com.zeroplus.zeroplus_legal.First2Fragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first2">
-        <action
-            android:id="@+id/action_First2Fragment_to_packagesFragment"
-            app:destination="@id/packagesFragment" />
+        
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -39,19 +37,14 @@
         android:name="com.zeroplus.zeroplus_legal.EarningsFragment"
         android:label="fragment_earnings"
         tools:layout="@layout/fragment_earnings" />
-    <fragment
+    <!--<fragment
         android:id="@+id/referralsFragment"
         android:name="com.zeroplus.zeroplus_legal.ReferralsFragment"
         android:label="fragment_referrals"
-        tools:layout="@layout/fragment_referrals" />
+        tools:layout="@layout/fragment_referrals" />-->
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.zeroplus.zeroplus_legal.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/packagesFragment"
-        android:name="com.zeroplus.zeroplus_legal.PackagesFragment"
-        android:label="fragment_packages"
-        tools:layout="@layout/fragment_packages" />
 </navigation>

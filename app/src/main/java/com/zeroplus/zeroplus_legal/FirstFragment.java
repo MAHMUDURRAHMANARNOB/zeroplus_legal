@@ -29,6 +29,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.zeroplus.zeroplus_legal.ResponseModels.loginResponseModel;
 import com.zeroplus.zeroplus_legal.databinding.FragmentFirstBinding;
 
 import org.json.JSONException;
@@ -37,6 +38,9 @@ import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class FirstFragment extends Fragment {
     Button loginbtn, regbtn, getbackLogin;
@@ -80,7 +84,8 @@ public class FirstFragment extends Fragment {
         SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
         if(sessionManager.CheckRememberMe()) {
             showToast();
-            processdata();
+            //processdata();
+            loginData();
         }
 
         binding.loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -149,9 +154,11 @@ public class FirstFragment extends Fragment {
     }
 
 
-    private void processdata(){
 
-        //API
+
+    public void loginData() {
+        MyApplication globalVariable = (MyApplication) getActivity().getApplication();
+
         SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
 
         HashMap<String, String> rememberMeDetails = sessionManager.getRememberMeDetailsFromSession();
@@ -163,124 +170,44 @@ public class FirstFragment extends Fragment {
         }
 
         else{
-            //parameter sending to the API
-            JSONObject parameter = new JSONObject();
-            try {
-                parameter.put("email", Email);
-                parameter.put("password", Password);
-                Log.d("username in", Email+"\t"+Password);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            /*CALLING THE LOGIN_RESPONSE_MODEL TO GET THE RESPONSE*/
+            Call<loginResponseModel> call = apiController.getInstance()
+                    .getApi().getLoginInfo(Email,Password);
 
-
-            MyApplication globalVariable = (MyApplication) getActivity().getApplication();
-
-
-            /*String ApiUrl = "http://128.199.193.12/zeroplus/public/api/auth/login";*/
-            String ApiUrl = ((MyApplication) getActivity().getApplication()).getBaseURL()+"auth/login";
-            /*String ApiUrl = ((MyApplication) getActivity().getApplication()).getBaseURL()+"auth/login";*/
-            //Response From API
-            JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, ApiUrl ,parameter,
-                    new Response.Listener<JSONObject>(){
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-
-                                /*parse from response*/
-                                Boolean result = response.getBoolean("result");
-                                /*String id = response.getString("id");*/
-                                globalVariable.setId(response.getString("id"));
-                                Log.d("inside login response",response.toString());
-//                            Log.d("id",result.toString());
-
-                                globalVariable.setlName(response.getString("name"));
-                                globalVariable.setlEmail(response.getString("email"));
-                                globalVariable.setlPhone(response.getString("phone"));
-                                globalVariable.setlRefer(response.getString("username"));
-                                globalVariable.setlRefer(response.getString("refer"));
-
-                                String msg = response.getString("message");
-                                Log.d("response", msg);
-
-
-                                Thread thread = new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        /*sleep(3000);*/
-
-                                        Intent i = new Intent(getContext(),DashboardActivity.class);
-                                        startActivity(i);
-                                        getActivity().finish();
-
-                                    }
-                                });
-                                thread.start();
-
-                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
-
-
-                            } catch (JSONException e) {
-                                //custom toast start
-                                String erroruser = "Invalid UserName or Password";
-                                Toast toast = Toast.makeText(
-                                        getActivity().getApplicationContext(),
-                                        Html.fromHtml("<h3><font color='#ff0000'>"  +erroruser+  "</font></h3>"),
-                                        Toast.LENGTH_LONG);
-                                // Set the Toast display position layout center
-                                toast.setGravity(Gravity.CENTER,0,50);
-                                // Finally, show the toast
-                                int lengthShort = Toast.LENGTH_SHORT;
-                                toast.setDuration(lengthShort);
-                                toast.show();
-                                //custom toast end
-                                e.printStackTrace();
-                            }
-                            /*Log.d("Response From API",response.toString());*/
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("Error", error.toString());
-                            String errormsg = "Check your connection and try again";
-                            Toast toast = Toast.makeText(
-                                    getActivity().getApplicationContext(),
-                                    Html.fromHtml("<h3><font color='#ff0000'>"  +errormsg+  "</font></h3>"),
-                                    Toast.LENGTH_LONG);
-
-                            // Set the Toast display position layout center
-                            //toast.setGravity(Gravity.CENTER,0,0);
-                            // Finally, show the toast
-                            int lengthShort = Toast.LENGTH_SHORT;
-                            toast.setDuration(lengthShort);
-                            toast.show();
-                            //Toast.makeText(getActivity(), "Check your connection and provide valid user name and password ", Toast.LENGTH_LONG).show();
-
-
-                        }
-                    })
-            {
+            call.enqueue(new Callback<loginResponseModel>() {
                 @Override
-                public Map<String, String> getParams()throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("Accept", "application/json");
-                    params.put("Content-Type", "application/json; charset=utf-8");
-                    params.put("User-agent", System.getProperty("http.agent"));
-                    params.put("password", Password);
+                public void onResponse(Call<loginResponseModel> call, retrofit2.Response<loginResponseModel> response) {
+                    loginResponseModel lrm = response.body();
+                    /*lrm.getEmail();*/
+                    Log.d("response", lrm.getName());
 
-                    return params;
+                    globalVariable.setlName(lrm.getName());
+                    globalVariable.setlEmail(lrm.getEmail());
+                    globalVariable.setlPhone(lrm.getPhone());
+                    globalVariable.setlUname(lrm.getUsername());
+                    globalVariable.setlRefer(lrm.getRefer());
+
+                    Thread thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            /*sleep(3000);*/
+                            Intent i = new Intent(getContext(), DashboardActivity.class);
+                            startActivity(i);
+                            getActivity().finish();
+                        }
+                    });
+                    thread.start();
+                    Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
+
                 }
 
                 @Override
-                public Priority getPriority() {
-                    return Priority.IMMEDIATE;
+                public void onFailure(Call<loginResponseModel> call, Throwable t) {
+                    String error = t.getMessage();
+                    Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
+
                 }
-            };
-
-            RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-            requestQueue.add(stringRequest);
-
+            });
         }
 
 
