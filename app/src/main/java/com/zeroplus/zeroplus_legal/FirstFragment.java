@@ -179,13 +179,16 @@ public class FirstFragment extends Fragment {
                 public void onResponse(Call<loginResponseModel> call, retrofit2.Response<loginResponseModel> response) {
                     loginResponseModel lrm = response.body();
                     /*lrm.getEmail();*/
-                    Log.d("response", lrm.getName());
+                    //Log.d("response", lrm.getName());
+                    if(lrm != null){
+                        globalVariable.setlName(lrm.getName());
+                        globalVariable.setlEmail(lrm.getEmail());
+                        globalVariable.setlPhone(lrm.getPhone());
+                        globalVariable.setlUname(lrm.getUsername());
+                        globalVariable.setlRefer(lrm.getRefer());
+                    }
 
-                    globalVariable.setlName(lrm.getName());
-                    globalVariable.setlEmail(lrm.getEmail());
-                    globalVariable.setlPhone(lrm.getPhone());
-                    globalVariable.setlUname(lrm.getUsername());
-                    globalVariable.setlRefer(lrm.getRefer());
+
 
                     Thread thread = new Thread(new Runnable() {
                         @Override
