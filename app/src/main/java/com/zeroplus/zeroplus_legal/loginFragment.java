@@ -42,6 +42,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -378,26 +379,34 @@ public class loginFragment extends Fragment {
             @Override
             public void onResponse(Call<loginResponseModel> call, retrofit2.Response<loginResponseModel> response) {
                 loginResponseModel lrm = response.body();
-                /*lrm.getEmail();*/
-                Log.d("response", lrm.getName());
+                assert lrm != null;
 
-                globalVariable.setlName(lrm.getName());
-                globalVariable.setlEmail(lrm.getEmail());
-                globalVariable.setlPhone(lrm.getPhone());
-                globalVariable.setlUname(lrm.getUsername());
-                globalVariable.setlRefer(lrm.getRefer());
+                if(Objects.equals(lrm.getResult(), "true")){
+                    globalVariable.setlName(lrm.getName());
+                    globalVariable.setlEmail(lrm.getEmail());
+                    globalVariable.setlPhone(lrm.getPhone());
+                    globalVariable.setlUname(lrm.getUsername());
+                    globalVariable.setlRefer(lrm.getRefer());
 
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        /*sleep(3000);*/
-                        Intent i = new Intent(getContext(), DashboardActivity.class);
-                        startActivity(i);
-                        getActivity().finish();
-                    }
-                });
-                thread.start();
-                Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
+                    Thread thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            /*sleep(3000);*/
+                            Intent i = new Intent(getContext(), DashboardActivity.class);
+                            startActivity(i);
+                            getActivity().finish();
+                        }
+                    });
+                    thread.start();
+                    String msg = "Successfully Logged In";
+                    showToast(msg);
+                    /*Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();*/
+                }
+                else{
+                    /*Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();*/
+                    String errormsg = "User Not Found\nEnter Valid Email and Password";
+                    showToast(errormsg);
+                }
 
             }
 
@@ -408,6 +417,19 @@ public class loginFragment extends Fragment {
 
             }
         });
+    }
+
+    public void showToast(String Msg){
+        LayoutInflater inflater = getLayoutInflater();
+        View layout =inflater.inflate(R.layout.custom_toast, (ViewGroup) getActivity().findViewById(R.id.toastRoot) );
+        TextView Text = (TextView) layout.findViewById(R.id.textView5);
+        Text.setText(Msg);
+        Toast toast = new Toast(getContext());
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+
+        toast.show();
     }
 
 
