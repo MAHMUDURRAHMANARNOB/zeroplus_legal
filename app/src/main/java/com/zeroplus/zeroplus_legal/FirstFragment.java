@@ -38,6 +38,7 @@ import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -83,7 +84,8 @@ public class FirstFragment extends Fragment {
 
         SessionManager sessionManager = new SessionManager(getContext(), SessionManager.SESSION_REMEMBERME);
         if(sessionManager.CheckRememberMe()) {
-            showToast();
+            String msg = "Checking Previous Login Info";
+            showToast(msg);
             //processdata();
             loginData();
         }
@@ -140,14 +142,14 @@ public class FirstFragment extends Fragment {
         });
     }
 
-    public void showToast(){
+    public void showToast(String Msg){
         LayoutInflater inflater = getLayoutInflater();
         View layout =inflater.inflate(R.layout.custom_toast, (ViewGroup) getActivity().findViewById(R.id.toastRoot) );
         TextView Text = (TextView) layout.findViewById(R.id.textView5);
-        Text.setText("Checking Last Session..");
+        Text.setText(Msg);
         Toast toast = new Toast(getContext());
         toast.setGravity(Gravity.CENTER,0,0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
 
         toast.show();
@@ -180,27 +182,35 @@ public class FirstFragment extends Fragment {
                     loginResponseModel lrm = response.body();
                     /*lrm.getEmail();*/
                     //Log.d("response", lrm.getName());
-                    if(lrm != null){
+                    assert lrm != null;
+                    if(Objects.equals(lrm.getResult(), "true")){
                         globalVariable.setlName(lrm.getName());
                         globalVariable.setlEmail(lrm.getEmail());
                         globalVariable.setlPhone(lrm.getPhone());
                         globalVariable.setlUname(lrm.getUsername());
                         globalVariable.setlRefer(lrm.getRefer());
+
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                /*sleep(3000);*/
+                                Intent i = new Intent(getContext(), DashboardActivity.class);
+                                startActivity(i);
+                                getActivity().finish();
+                            }
+                        });
+                        thread.start();
+                        String msg = "Successfully Logged In";
+                        showToast(msg);
+                        //Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
                     }
 
+                    else{
+                        /*Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();*/
+                        String errormsg = "User Not Found\nEnter Valid Email and Password";
+                        showToast(errormsg);
+                    }
 
-
-                    Thread thread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            /*sleep(3000);*/
-                            Intent i = new Intent(getContext(), DashboardActivity.class);
-                            startActivity(i);
-                            getActivity().finish();
-                        }
-                    });
-                    thread.start();
-                    Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
 
                 }
 

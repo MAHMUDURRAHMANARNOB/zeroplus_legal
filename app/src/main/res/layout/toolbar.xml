@@ -14,18 +14,18 @@
 
         <ImageView
             android:id="@+id/tool_menu"
-            android:layout_width="20dp"
-            android:layout_height="40dp"
-            android:layout_weight="0.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
             android:layout_gravity="center"
             android:clickable="true"
-            android:src="@drawable/baseline_menu_24"
+            android:src="@drawable/three_dot"
             android:focusable="true" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.8"
+            android:layout_weight="1.9"
             android:orientation="vertical">
 
             <TextView
